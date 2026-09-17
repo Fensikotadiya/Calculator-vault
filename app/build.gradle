@@ -1,13 +1,30 @@
 apply plugin: 'com.android.application'
+
+// Upload key for Play Console; keystore.properties and the keystore stay out of git.
+def keystoreFile = rootProject.file('keystore.properties')
+def keystore = new Properties()
+if (keystoreFile.exists()) keystoreFile.withInputStream { keystore.load(it) }
+
 android {
     namespace 'com.privatecalc.vault'
-    compileSdk 35
+    compileSdk 36
     defaultConfig {
         applicationId 'com.privatecalc.vault'
         minSdk 26
-        targetSdk 35
+        targetSdk 36
         versionCode 1
         versionName '1.0'
+    }
+    signingConfigs {
+        if (keystoreFile.exists()) release {
+            storeFile file(keystore['storeFile'])
+            storePassword keystore['storePassword']
+            keyAlias keystore['keyAlias']
+            keyPassword keystore['keyPassword']
+        }
+    }
+    buildTypes {
+        release { if (keystoreFile.exists()) signingConfig signingConfigs.release }
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
 }

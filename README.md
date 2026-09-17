@@ -26,13 +26,22 @@ Imports copy media. They do not delete or hide originals in your gallery, cloud 
 
 ## Build
 
-Open this folder in Android Studio with JDK 17 and Android SDK 35, or run Gradle 8.14.3:
+Open this folder in Android Studio with JDK 17 and Android SDK 36, or run Gradle 8.14.3:
 
 ```text
 ./gradlew :app:assembleDebug :app:lintDebug
 ```
 
-The debug APK is for testing. Store distribution requires your own release signing key and release build configuration.
+The debug APK is for testing. For Google Play, create a `keystore.properties` file in this folder (it is git-ignored) pointing to your upload key:
+
+```text
+storeFile=D:/path/to/upload.jks
+storePassword=...
+keyAlias=upload
+keyPassword=...
+```
+
+Then run `./gradlew :app:bundleRelease` and upload `app/build/outputs/bundle/release/app-release.aab`. Raise `versionCode` in `app/build.gradle` for every upload. Never commit the keystore or its passwords, and keep a backup of both: Play only accepts bundles signed with the registered upload key.
 
 ## Checks
 

@@ -151,7 +151,7 @@ public class MainActivity extends Activity {
             runOnUiThread(() -> {
                 busy = false; expression="";
                 if (token != session || !foreground) return;
-                if (valid) { preferences.edit().putInt("attempts",0).putLong("retry",0).apply(); unlocked=true; vault(); importPending(); }
+                if (valid) { preferences.edit().putInt("attempts",0).putLong("retry",0).apply(); unlocked=true; interceptBack(true); vault(); importPending(); }
                 else {
                     int attempts = preferences.getInt("attempts",0)+1;
                     preferences.edit().putInt("attempts",attempts).putLong("retry",attempts >= 5 ? System.currentTimeMillis()+30000 : 0).apply();
@@ -303,9 +303,16 @@ public class MainActivity extends Activity {
     }
     private void stopVideo() { if(video!=null) { video.stopPlayback(); video=null; } }
     private void clearPreviews() { File[] files=getCacheDir().listFiles((d,n) -> n.startsWith("preview-")); if(files!=null) for(File file:files) file.delete(); }
-    private void lock() { unlocked=false; session++; expression=""; closeDialog(); stopVideo(); clearPreviews(); calculator(); }
+    private void lock() { unlocked=false; session++; expression=""; interceptBack(false); closeDialog(); stopVideo(); clearPreviews(); calculator(); }
     @Override protected void onResume() { super.onResume(); foreground=true; }
     @Override protected void onPause() { foreground=false; lock(); super.onPause(); }
+    // Android 13+ delivers back through OnBackInvokedDispatcher; onBackPressed covers older versions. Held as Object so older devices never load the class.
+    private Object backCallback;
+    private void interceptBack(boolean enable) {
+        if (Build.VERSION.SDK_INT < 33 || enable == (backCallback != null)) return;
+        if (enable) { backCallback = (android.window.OnBackInvokedCallback) this::lock; getOnBackInvokedDispatcher().registerOnBackInvokedCallback(android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT,(android.window.OnBackInvokedCallback) backCallback); }
+        else { getOnBackInvokedDispatcher().unregisterOnBackInvokedCallback((android.window.OnBackInvokedCallback) backCallback); backCallback = null; }
+    }
     @Override public void onBackPressed() { if(unlocked) lock(); else super.onBackPressed(); }
     @Override protected void onDestroy() { stopVideo(); worker.shutdown(); super.onDestroy(); }
     private void toast(String message) { Toast.makeText(this,message,Toast.LENGTH_LONG).show(); }
