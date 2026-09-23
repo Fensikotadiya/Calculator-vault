@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Needed only by the private browser tab. Nothing else in the app talks to the network. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Optional. Only requested if you turn on direct calling; without it calls open in the phone dialer. -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- Declaring CALL_PHONE otherwise makes telephony a hard requirement and hides the app from tablets. -->
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
     <application android:theme="@android:style/Theme.Material.NoActionBar" android:label="Calculator" android:icon="@drawable/ic_calculator" android:allowBackup="false" android:fullBackupContent="false" android:dataExtractionRules="@xml/data_extraction_rules" android:usesCleartextTraffic="false" android:supportsRtl="true" android:enableOnBackInvokedCallback="true">
         <activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -7,4 +13,11 @@
             </intent-filter>
         </activity>
     </application>
+    <!-- Package visibility for the dialer, so resolving a tel: intent works on Android 11 and newer. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+    </queries>
 </manifest>
