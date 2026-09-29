@@ -1,8 +1,8 @@
 # Privacy Policy for Calculator Vault: Hide Photo
 
-Last updated: 21 September 2026
+Last updated: 29 September 2026
 
-Calculator Vault ("the app") is an Android app that works as a calculator, keeps a PIN-protected vault for photos, videos, and phone numbers on your device, and includes a private browser. This policy explains how the app handles your information.
+Calculator Vault ("the app") is an Android app that works as a calculator, keeps a PIN-protected vault for photos, videos, phone numbers, and notes on your device, and includes a private browser. This policy explains how the app handles your information.
 
 ## Data the developer collects
 
@@ -10,7 +10,7 @@ Calculator Vault ("the app") is an Android app that works as a calculator, keeps
 
 - The app sends nothing to the developer. Its only network use is the browser tab, which connects to the sites you choose to visit and to nothing else.
 - There are no accounts, sign-ins, ads, analytics, crash reporting, or third-party SDKs.
-- The developer cannot see your PIN, your photos, your videos, your contacts, the pages you visit, or how you use the app.
+- The developer cannot see your PIN, your photos, your videos, your contacts, your notes, the pages you visit, or how you use the app.
 
 ## Data the app stores on your device
 
@@ -18,6 +18,7 @@ Everything the app stores stays in the app's private storage on your phone:
 
 - **Photos and videos you import.** They are copied into the vault and encrypted with AES-256-GCM. The encryption key is held by the Android Keystore on your device.
 - **Contacts you save in the vault.** The name, number, and note are encrypted with the same key, in the same format, in a single file inside the vault. They are not written to your phone's contact list and are not visible to any other app.
+- **Notes you write in the vault.** The title and the text are encrypted with the same key, in the same format, in a single file inside the vault. They are not written to your phone's own notes app and are not visible to any other app.
 - **Your PIN.** The PIN itself is not stored. Only a PBKDF2-HMAC-SHA256 hash and a random salt are saved, which are used to check the PIN you enter.
 - **Temporary files.** When you view or play an item, the app decrypts it into its private cache. These files are deleted when the vault locks and on next launch.
 - **Nothing from the browser.** No browsing history, bookmarks, passwords, or downloads are saved. Cookies and site storage last only while the vault is unlocked and are erased, together with the browser cache, every time it locks.
@@ -30,7 +31,7 @@ Removing an original takes it out of your gallery on this phone. It does not rea
 
 - **No permission is needed to use the vault.** To add media the app uses Android's system file picker, and to import a contact it uses Android's system contact picker. Both give the app access only to the single item you pick, and neither requires the storage or contacts permission. Removing an original from the gallery also needs no storage permission: on Android 11 and newer the app asks Android to delete the items it just imported, and Android puts that request to you in its own dialog.
 - **CALL_PHONE is optional.** By default, calling a vault contact opens your phone's dialer with the number filled in, which needs no permission. If you turn on direct calling in vault settings, Android asks for the phone permission once so the call can start without leaving the app. Declining keeps the dialer behaviour, and you can turn it off again at any time.
-- **INTERNET is used only by the browser tab.** The calculator, the vault, and your contacts work with the device offline. No part of the app contacts the developer or any analytics, advertising, or crash-reporting service.
+- **INTERNET is used only by the browser tab.** The calculator, the vault, your contacts, and your notes work with the device offline. No part of the app contacts the developer or any analytics, advertising, or crash-reporting service.
 
 ## Calls
 
@@ -44,9 +45,9 @@ On your device, nothing is kept. Pages load over `https` only, downloads are ref
 
 ## Data sharing and deletion
 
-The app shares no data with anyone. You can delete any item or contact from within the vault, and uninstalling the app or clearing its data removes the vault and all its contents permanently.
+The app shares no data with anyone. You can delete any item, contact, or note from within the vault, and uninstalling the app or clearing its data removes the vault and all its contents permanently.
 
-There is no PIN recovery and no backup. If you forget your PIN, uninstall the app, or clear its data, the vault cannot be recovered. Export important files and keep a copy of important numbers elsewhere.
+There is no PIN recovery and no backup. If you forget your PIN, uninstall the app, or clear its data, the vault cannot be recovered. Export important files and keep a copy of important numbers and notes elsewhere.
 
 ## Children
 
@@ -54,7 +55,7 @@ The app is not directed at children and collects no data from anyone.
 
 ## Security
 
-Media and contacts are encrypted on the device, screenshots and screen recording are blocked inside the app, and Android backup is disabled. No security measure is absolute; a rooted, compromised, or forensically examined device may put local data at risk.
+Media, contacts, and notes are encrypted on the device, screenshots and screen recording are blocked inside the app, and Android backup is disabled. No security measure is absolute; a rooted, compromised, or forensically examined device may put local data at risk.
 
 ## Changes
 

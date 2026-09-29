@@ -29,7 +29,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
 public class MainActivity extends Activity {
-    private static final int PHOTOS = 0, VIDEOS = 1, CONTACTS = 2, BROWSER = 3;
+    private static final int PHOTOS = 0, VIDEOS = 1, CONTACTS = 2, NOTES = 3, BROWSER = 4;
     private final int background = Color.rgb(14, 20, 23), panel = Color.rgb(28, 37, 42), raised = Color.rgb(38, 50, 56), mint = Color.rgb(171, 241, 210), mintWash = Color.rgb(30, 54, 48),
         lilac = Color.rgb(190, 198, 255), lilacWash = Color.rgb(40, 44, 70), danger = Color.rgb(255, 138, 128), dangerWash = Color.rgb(64, 32, 32), soft = 0xffa5b3b8, muted = 0xff8b9b9f;
     private final Typeface medium = Typeface.create("sans-serif-medium", Typeface.NORMAL);
@@ -59,6 +59,8 @@ public class MainActivity extends Activity {
     private Uri pendingExportTree, pendingContactPick;
     // Decrypted contacts live in memory only, like the thumbnails, and are dropped on lock.
     private ArrayList<Contacts.Entry> contacts;
+    // Notes are read and held the same way, in their own file and their own memory copy.
+    private ArrayList<Notes.Entry> notes;
     private int tab;
     // The browser view outlives a tab switch so a page is not reloaded, and is destroyed on lock.
     private WebView browser;
@@ -126,6 +128,13 @@ public class MainActivity extends Activity {
         entry.setHint(placeholder); entry.setHintTextColor(muted); entry.setTextColor(Color.WHITE); entry.setTextSize(16);
         entry.setBackground(shape(raised,14)); entry.setPadding(dp(16),dp(14),dp(16),dp(14)); return entry;
     }
+    /** The body of a note. It grows with what is typed and the card scrolls, so the keyboard never hides the buttons. */
+    private EditText area(String placeholder, int lines) {
+        EditText entry = new EditText(this); entry.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        entry.setGravity(Gravity.TOP | Gravity.START); entry.setMinLines(lines);
+        entry.setHint(placeholder); entry.setHintTextColor(muted); entry.setTextColor(Color.WHITE); entry.setTextSize(16);
+        entry.setBackground(shape(raised,14)); entry.setPadding(dp(16),dp(14),dp(16),dp(14)); return entry;
+    }
     private EditText pinField(String placeholder) {
         EditText entry = field(placeholder,InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
         entry.setPadding(dp(16),dp(14),dp(48),dp(14)); return entry;   // room for the reveal button
@@ -146,10 +155,10 @@ public class MainActivity extends Activity {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(dp(44),dp(44)); params.gravity = Gravity.END | Gravity.CENTER_VERTICAL; params.setMarginEnd(dp(3));
         row.addView(eye,params); return row;
     }
+    /** One line that truncates instead of wrapping, so long text never changes the height of the row holding it. */
+    private TextView single(TextView view) { view.setMaxLines(1); view.setEllipsize(android.text.TextUtils.TruncateAt.END); return view; }
     /** Header caption that truncates instead of wrapping, so the buttons beside it keep the row one line tall. */
-    private TextView banner(String value) {
-        TextView t = label(value,13,mint,true); t.setMaxLines(1); t.setEllipsize(android.text.TextUtils.TruncateAt.END); return t;
-    }
+    private TextView banner(String value) { return single(label(value,13,mint,true)); }
     private LinearLayout stack(String title, String detail, int color) {
         LinearLayout s = new LinearLayout(this); s.setOrientation(LinearLayout.VERTICAL);
         s.addView(label(title,16,color,true)); s.addView(label(detail,13,soft,false),margins(new LinearLayout.LayoutParams(-2,-2),0,2,0,0)); return s;
@@ -373,6 +382,7 @@ public class MainActivity extends Activity {
         root.addView(page,new LinearLayout.LayoutParams(-1,0,1));
         switch (tab) {
             case CONTACTS: contactsTab(page); break;
+            case NOTES: notesTab(page); break;
             case BROWSER: browserTab(page); break;
             default: mediaTab(page); break;
         }
@@ -383,6 +393,7 @@ public class MainActivity extends Activity {
         bar.addView(tabButton(R.drawable.ic_photo,"Photos",PHOTOS),new LinearLayout.LayoutParams(0,dp(54),1));
         bar.addView(tabButton(R.drawable.ic_video,"Videos",VIDEOS),new LinearLayout.LayoutParams(0,dp(54),1));
         bar.addView(tabButton(R.drawable.ic_contact,"Contacts",CONTACTS),new LinearLayout.LayoutParams(0,dp(54),1));
+        bar.addView(tabButton(R.drawable.ic_note,"Notes",NOTES),new LinearLayout.LayoutParams(0,dp(54),1));
         bar.addView(tabButton(R.drawable.ic_globe,"Browser",BROWSER),new LinearLayout.LayoutParams(0,dp(54),1));
         return bar;
     }
@@ -391,20 +402,22 @@ public class MainActivity extends Activity {
         LinearLayout button = new LinearLayout(this); button.setOrientation(LinearLayout.VERTICAL); button.setGravity(Gravity.CENTER);
         button.setBackground(surface(active ? mintWash : Color.TRANSPARENT,18));
         button.addView(glyph(drawable,active ? mint : muted),new LinearLayout.LayoutParams(dp(22),dp(22)));
-        TextView caption = label(name,11,active ? mint : muted,active);
+        // Five captions share the width, so a large system font size truncates one rather than wrapping it out of the button.
+        TextView caption = single(label(name,11,active ? mint : muted,active));
         caption.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
         button.addView(caption,margins(new LinearLayout.LayoutParams(-2,-2),0,4,0,0));
         button.setContentDescription(active ? name + ", showing" : name);
         button.setOnClickListener(v -> openTab(index));
         return button;
     }
-    /** Contacts are decrypted before their tab opens, so a failed read leaves the current tab on screen. */
+    /** Contacts and notes are decrypted before their tab opens, so a failed read leaves the current tab on screen. */
     private void openTab(int index) {
         if (!unlocked || tab == index) return;
         selecting = false; selection.clear();
         // A detached browser keeps running scripts and timers, so it is stopped while another tab is open.
         if (tab == BROWSER && browser != null) { browser.onPause(); browser.pauseTimers(); }
         if (index == CONTACTS) { withContacts(() -> { tab = CONTACTS; vault(); }); return; }
+        if (index == NOTES) { withNotes(() -> { tab = NOTES; vault(); }); return; }
         tab = index; vault();
     }
     private void mediaTab(LinearLayout page) {
@@ -720,13 +733,17 @@ public class MainActivity extends Activity {
         } catch (SecurityException e) { toast("Calling permission was withdrawn. Turn direct calling on again."); }
         catch (Exception e) { toast("No app on this device can place calls"); }
     }
-    private void copyNumber(Contacts.Entry entry) {
-        ClipData clip = ClipData.newPlainText("Phone number",entry.number);
+    /** The clip is flagged sensitive on Android 13 and newer, so the system does not preview what was copied. */
+    private void copy(String description, String value, String message) {
+        ClipData clip = ClipData.newPlainText(description,value);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             PersistableBundle extras = new PersistableBundle(); extras.putBoolean(ClipDescription.EXTRA_IS_SENSITIVE,true); clip.getDescription().setExtras(extras);
         }
         ((ClipboardManager) getSystemService(CLIPBOARD_SERVICE)).setPrimaryClip(clip);
-        toast("Number copied. It stays on the clipboard until something replaces it.");
+        toast(message);
+    }
+    private void copyNumber(Contacts.Entry entry) {
+        copy("Phone number",entry.number,"Number copied. It stays on the clipboard until something replaces it.");
     }
     private void toggleDirectCall() {
         if (preferences.getBoolean("direct",false)) {
@@ -765,6 +782,159 @@ public class MainActivity extends Activity {
         boolean granted = results.length > 0 && results[0] == PackageManager.PERMISSION_GRANTED;
         preferences.edit().putBoolean("direct",granted).apply();
         toast(granted ? "Direct calling is on. Unlock the vault to use it." : "Permission declined. Calls will open in your phone dialer.");
+    }
+    private void withNotes(Runnable action) {
+        if (!unlocked) return;
+        if (notes != null) { action.run(); return; }
+        int token = session;
+        worker.execute(() -> {
+            ArrayList<Notes.Entry> loaded = null;
+            try { loaded = store.loadNotes(); } catch (Exception ignored) { }
+            final ArrayList<Notes.Entry> result = loaded;
+            runOnUiThread(() -> {
+                if (!unlocked || token != session) return;
+                if (result == null) { toast("Could not open your notes"); return; }
+                notes = result; action.run();
+            });
+        });
+    }
+    /** Display order only; the stored file keeps the order notes were added. The one edited last is shown first. */
+    private ArrayList<Notes.Entry> sortedNotes() {
+        ArrayList<Notes.Entry> list = new ArrayList<>(notes);
+        Collections.sort(list,(a,b) -> Long.compare(b.updated,a.updated));
+        return list;
+    }
+    private void notesTab(LinearLayout page) {
+        if (notes == null) { withNotes(this::vault); return; }
+        ArrayList<Notes.Entry> list = sortedNotes();
+        LinearLayout top = new LinearLayout(this); top.setGravity(Gravity.CENTER_VERTICAL); page.addView(top);
+        top.addView(glyph(R.drawable.ic_shield,mint),new LinearLayout.LayoutParams(dp(16),dp(16)));
+        top.addView(banner("Encrypted on device"),margins(new LinearLayout.LayoutParams(0,-2,1),6,0,8,0));
+        top.addView(round(R.drawable.ic_tune,"Vault settings",mint,this::settings),margins(new LinearLayout.LayoutParams(dp(40),dp(40)),0,0,8,0));
+        top.addView(action(R.drawable.ic_lock,"Lock",mint,panel,this::lock),new LinearLayout.LayoutParams(-2,dp(40)));
+        page.addView(label("Notes",28,Color.WHITE,true),margins(new LinearLayout.LayoutParams(-2,-2),0,14,0,0));
+        page.addView(label(list.isEmpty() ? "No notes yet" : count(list.size(),"note") + " saved",14,soft,false),margins(new LinearLayout.LayoutParams(-1,-2),0,4,0,0));
+        page.addView(action(R.drawable.ic_add,"New note",background,mint,() -> noteEditor(Notes.entry("","","",0L))),margins(new LinearLayout.LayoutParams(-1,dp(56)),0,20,0,0));
+        ScrollView scroll = new ScrollView(this); scroll.setVerticalScrollBarEnabled(false);
+        LinearLayout body = new LinearLayout(this); body.setOrientation(LinearLayout.VERTICAL); scroll.addView(body);
+        page.addView(scroll,margins(new LinearLayout.LayoutParams(-1,0,1),0,12,0,0));
+        if (list.isEmpty()) {
+            LinearLayout empty = new LinearLayout(this); empty.setOrientation(LinearLayout.VERTICAL); empty.setGravity(Gravity.CENTER_HORIZONTAL); empty.setPadding(dp(24),dp(40),dp(24),dp(24));
+            empty.addView(tile(R.drawable.ic_note,lilac,lilacWash,64),new LinearLayout.LayoutParams(dp(64),dp(64)));
+            TextView heading = label("Words only you can read",20,Color.WHITE,true); heading.setGravity(Gravity.CENTER); empty.addView(heading,margins(new LinearLayout.LayoutParams(-2,-2),0,16,0,0));
+            TextView start = label("An address, a hint, anything you would rather not leave in a notes app.\nYour PIN opens this space from the calculator.",14,soft,false);
+            start.setGravity(Gravity.CENTER); start.setLineSpacing(dp(2),1); empty.addView(start,margins(new LinearLayout.LayoutParams(-2,-2),0,6,0,0)); body.addView(empty);
+        } else {
+            TextView order = label("LAST EDITED FIRST",12,muted,true); order.setLetterSpacing(0.1f); order.setPadding(dp(4),0,dp(4),0);
+            body.addView(order,margins(new LinearLayout.LayoutParams(-1,-2),0,12,0,4));
+            for (Notes.Entry entry : list) body.addView(noteRow(entry),margins(new LinearLayout.LayoutParams(-1,-2),0,8,0,0));
+        }
+        body.addView(footer("Notes are lost with the vault. Keep a copy elsewhere."),margins(new LinearLayout.LayoutParams(-1,-2),0,16,0,0));
+    }
+    /** The heading and preview are truncated to one line each, so a long note does not stretch its row. */
+    private LinearLayout noteRow(Notes.Entry entry) {
+        LinearLayout row = new LinearLayout(this); row.setGravity(Gravity.CENTER_VERTICAL); row.setPadding(dp(12),dp(12),dp(12),dp(12)); row.setBackground(surface(panel,20));
+        row.addView(tile(R.drawable.ic_note,lilac,lilacWash,48),new LinearLayout.LayoutParams(dp(48),dp(48)));
+        LinearLayout written = new LinearLayout(this); written.setOrientation(LinearLayout.VERTICAL);
+        written.addView(single(label(entry.heading(),16,Color.WHITE,true)));
+        written.addView(single(label(entry.preview(),13,soft,false)),margins(new LinearLayout.LayoutParams(-2,-2),0,2,0,0));
+        written.addView(label(edited(entry),12,muted,false),margins(new LinearLayout.LayoutParams(-2,-2),0,4,0,0));
+        row.addView(written,margins(new LinearLayout.LayoutParams(0,-2,1),14,0,8,0));
+        row.addView(glyph(R.drawable.ic_chevron,muted),new LinearLayout.LayoutParams(dp(22),dp(22)));
+        row.setOnClickListener(v -> noteActions(entry)); return row;
+    }
+    private String edited(Notes.Entry entry) {
+        return "Edited " + DateUtils.getRelativeTimeSpanString(entry.updated,System.currentTimeMillis(),DateUtils.MINUTE_IN_MILLIS);
+    }
+    private void noteActions(Notes.Entry entry) {
+        LinearLayout content = sheet(R.drawable.ic_note,lilac,lilacWash,entry.heading(),edited(entry));
+        content.addView(option(R.drawable.ic_view,"Read","Opens the whole note inside the vault",false,() -> noteViewer(entry)));
+        content.addView(option(R.drawable.ic_edit,"Edit","Change the title or the text",false,() -> noteEditor(entry)));
+        content.addView(option(R.drawable.ic_copy,"Copy text","Puts it on the clipboard until you replace it",false,() -> copyNote(entry)));
+        content.addView(option(R.drawable.ic_delete,"Delete note","Removes it from the vault only",true,() -> confirmDeleteNote(entry)));
+        vaultDialog = popup(content,Gravity.BOTTOM);
+    }
+    /** Reading without the keyboard in the way; editing is one tap further on. */
+    private void noteViewer(Notes.Entry entry) {
+        LinearLayout card = card();
+        card.addView(tile(R.drawable.ic_note,lilac,lilacWash,48),new LinearLayout.LayoutParams(dp(48),dp(48)));
+        card.addView(label(entry.heading(),20,Color.WHITE,true),margins(new LinearLayout.LayoutParams(-2,-2),0,16,0,0));
+        card.addView(label(edited(entry),13,muted,false),margins(new LinearLayout.LayoutParams(-2,-2),0,4,0,0));
+        TextView written = label(entry.body.isEmpty() ? "This note has no text." : entry.body,15,entry.body.isEmpty() ? muted : Color.WHITE,false);
+        written.setLineSpacing(dp(4),1); written.setTextIsSelectable(true);
+        card.addView(written,margins(new LinearLayout.LayoutParams(-1,-2),0,14,0,0));
+        LinearLayout buttons = new LinearLayout(this);
+        buttons.addView(action(0,"Close",Color.WHITE,raised,this::closeDialog),new LinearLayout.LayoutParams(0,dp(48),1));
+        buttons.addView(action(0,"Edit",background,mint,() -> { closeDialog(); noteEditor(entry); }),margins(new LinearLayout.LayoutParams(0,dp(48),1),12,0,0,0));
+        card.addView(buttons,margins(new LinearLayout.LayoutParams(-1,-2),0,20,0,0));
+        vaultDialog = popup(scrollable(card),Gravity.CENTER);
+    }
+    /** An entry with an empty id is a new note; anything else replaces the saved record with that id. */
+    private void noteEditor(Notes.Entry existing) {
+        boolean fresh = existing.id.isEmpty();
+        LinearLayout card = card();
+        card.addView(tile(R.drawable.ic_note,mint,mintWash,48),new LinearLayout.LayoutParams(dp(48),dp(48)));
+        card.addView(label(fresh ? "New note" : "Edit note",20,Color.WHITE,true),margins(new LinearLayout.LayoutParams(-2,-2),0,16,0,0));
+        TextView body = label("Kept encrypted in the vault. Nothing is written to your phone's own notes app.",14,soft,false); body.setLineSpacing(dp(2),1);
+        card.addView(body,margins(new LinearLayout.LayoutParams(-1,-2),0,6,0,0));
+        EditText title = field("Title (optional)",InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        EditText written = area("Write your note",6);
+        title.setText(existing.title); written.setText(existing.body);
+        card.addView(title,margins(new LinearLayout.LayoutParams(-1,-2),0,16,0,0));
+        card.addView(written,margins(new LinearLayout.LayoutParams(-1,-2),0,10,0,0));
+        TextView error = label("",13,danger,false); card.addView(error,margins(new LinearLayout.LayoutParams(-1,-2),0,8,0,0));
+        LinearLayout buttons = new LinearLayout(this);
+        LinearLayout save = action(0,"Save",background,mint,null);
+        buttons.addView(action(0,"Cancel",Color.WHITE,raised,this::closeDialog),new LinearLayout.LayoutParams(0,dp(48),1));
+        buttons.addView(save,margins(new LinearLayout.LayoutParams(0,dp(48),1),12,0,0,0));
+        card.addView(buttons,margins(new LinearLayout.LayoutParams(-1,-2),0,16,0,0));
+        vaultDialog = popup(scrollable(card),Gravity.CENTER);
+        save.setOnClickListener(v -> {
+            Notes.Entry edited = Notes.entry(fresh ? UUID.randomUUID().toString() : existing.id,
+                title.getText().toString(),written.getText().toString(),System.currentTimeMillis());
+            if (Notes.blank(edited)) { error.setText("Write a title or some text first"); return; }
+            closeDialog();
+            if (!unlocked || notes == null) return;
+            int at = -1; for (int i=0;i<notes.size();i++) if (notes.get(i).id.equals(edited.id)) at = i;
+            if (at < 0) notes.add(edited); else notes.set(at,edited);
+            tab = NOTES; vault(); commitNotes(fresh ? "Note saved in the vault" : "Note updated");
+        });
+    }
+    private void confirmDeleteNote(Notes.Entry entry) {
+        LinearLayout card = card();
+        card.addView(tile(R.drawable.ic_delete,danger,dangerWash,48),new LinearLayout.LayoutParams(dp(48),dp(48)));
+        card.addView(label("Delete this note?",20,Color.WHITE,true),margins(new LinearLayout.LayoutParams(-2,-2),0,16,0,0));
+        TextView body = label("“" + entry.heading() + "” is permanently removed from the vault. Copy anything you still need first.",14,soft,false);
+        body.setLineSpacing(dp(2),1); card.addView(body,margins(new LinearLayout.LayoutParams(-1,-2),0,6,0,0));
+        LinearLayout buttons = new LinearLayout(this);
+        buttons.addView(action(0,"Cancel",Color.WHITE,raised,this::closeDialog),new LinearLayout.LayoutParams(0,dp(48),1));
+        buttons.addView(action(0,"Delete",background,danger,() -> {
+            closeDialog();
+            if (!unlocked || notes == null) return;
+            for (Iterator<Notes.Entry> each = notes.iterator(); each.hasNext(); ) if (each.next().id.equals(entry.id)) each.remove();
+            vault(); commitNotes("Note deleted");
+        }),margins(new LinearLayout.LayoutParams(0,dp(48),1),12,0,0,0));
+        card.addView(buttons,margins(new LinearLayout.LayoutParams(-1,-2),0,24,0,0));
+        vaultDialog = popup(scrollable(card),Gravity.CENTER);
+    }
+    /** Re-encrypts every note. A failed write leaves the file alone, so the memory copy is dropped and re-read. */
+    private void commitNotes(String message) {
+        ArrayList<Notes.Entry> snapshot = new ArrayList<>(notes); int token = session;
+        worker.execute(() -> {
+            boolean ok = true;
+            try { store.saveNotes(snapshot); } catch (Exception e) { ok = false; }
+            final boolean saved = ok;
+            runOnUiThread(() -> {
+                if (token != session) return;
+                if (saved) { toast(message); return; }
+                notes = null; toast("Could not save notes. Nothing was changed.");
+                if (tab == NOTES) { tab = PHOTOS; vault(); }
+            });
+        });
+    }
+    private void copyNote(Notes.Entry entry) {
+        String written = entry.title.isEmpty() ? entry.body : entry.body.isEmpty() ? entry.title : entry.title + "\n" + entry.body;
+        copy("Note",written,"Note copied. It stays on the clipboard until something replaces it.");
     }
     private void browserTab(LinearLayout page) {
         WebView view = web(); view.onResume(); view.resumeTimers();
@@ -1144,7 +1314,7 @@ public class MainActivity extends Activity {
     private void clearPreviews() { File[] files=getCacheDir().listFiles((d,n) -> n.startsWith("preview-")); if(files!=null) for(File file:files) file.delete(); }
     private void lock() {
         unlocked=false; session++; expression=""; selecting=false; selection.clear(); thumbnails.evictAll();
-        contacts=null; tab=PHOTOS; clearBrowser();
+        contacts=null; notes=null; tab=PHOTOS; clearBrowser();
         closeDialog(); stopVideo(); clearPreviews(); calculator();
     }
     @Override protected void onResume() { super.onResume(); foreground=true; }

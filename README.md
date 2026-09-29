@@ -1,18 +1,19 @@
 # Calculator Vault for Android
 
-A native Java Android app with a working calculator and a PIN-protected local vault for photos, videos, and phone numbers, plus a private browser. Android 8.0 or newer. No ads, accounts, analytics, or third-party SDKs. The browser is the only part that uses the network.
+A native Java Android app with a working calculator and a PIN-protected local vault for photos, videos, phone numbers, and notes, plus a private browser. Android 8.0 or newer. No ads, accounts, analytics, or third-party SDKs. The browser is the only part that uses the network.
 
 ## Use
 
 1. Install `app/build/outputs/apk/debug/app-debug.apk` on your Android phone.
 2. Create and confirm a 6–12 digit PIN on first launch.
 3. Enter that PIN in the calculator and tap **=** to open the vault.
-4. Use the tabs along the bottom: **Photos**, **Videos**, **Contacts** and **Browser**.
+4. Use the tabs along the bottom: **Photos**, **Videos**, **Contacts**, **Notes** and **Browser**.
 5. On a media tab, tap **Add photos** or **Add videos** and select media. Enter the PIN again when you return from the system picker to complete importing; the import opens on the tab you started from.
 6. Tap an item to view it, export a copy, select it, or permanently delete the vault copy. Export also requires unlocking after the system picker returns.
 7. Long press any item to select several, then **Export** them into a folder you choose or **Delete** them together.
-8. Open the **Browser** tab for a private browsing session that is erased whenever the vault locks.
-9. Tap **Lock**, switch apps, or leave the activity to return to the calculator.
+8. Open the **Notes** tab and tap **New note** to keep text in the vault. Tap a note to read, edit, copy or delete it.
+9. Open the **Browser** tab for a private browsing session that is erased whenever the vault locks.
+10. Tap **Lock**, switch apps, or leave the activity to return to the calculator.
 
 ## Calculator
 
@@ -22,7 +23,7 @@ The history button keeps the last 20 finished calculations in app preferences, a
 
 ## Vault
 
-The unlocked vault is a set of tabs along the bottom: **Photos**, **Videos**, **Contacts** and **Browser**. Photos and videos are listed separately, each with its own count, empty state and **Add** button, and the picker on each tab offers only that kind of file. Sort order and grid/list are shared by both media tabs. Leaving selection mode, locking, or backgrounding the app returns to **Photos**.
+The unlocked vault is a set of tabs along the bottom: **Photos**, **Videos**, **Contacts**, **Notes** and **Browser**. Photos and videos are listed separately, each with its own count, empty state and **Add** button, and the picker on each tab offers only that kind of file. Sort order and grid/list are shared by both media tabs. Leaving selection mode, locking, or backgrounding the app returns to **Photos**.
 
 Photos are listed with a thumbnail, decrypted in memory for display only and dropped when the vault locks; videos keep an icon. **Grid** shows three per row, **list** adds size and date. Items are numbered per type from the newest, and that name stays with the item when the sort order changes (newest, oldest, largest or smallest first). Vault settings also holds **Change PIN**, which asks for the current PIN and rewrites the salted hash without touching the encrypted files.
 
@@ -40,6 +41,14 @@ Calling opens the phone dialer with the number filled in, which needs no permiss
 
 A call from the vault is an ordinary call. It appears in the call log, in the dialer's recents, and on the carrier's bill; the app does not hide it there. Starting a call leaves the app, so the vault locks.
 
+## Notes
+
+**New note** saves a title and some text straight into the vault. Both are optional on their own, but a note with neither is not saved. The title is what the list shows; a note saved without one is headed by its first line instead, with the rest of the text previewed under it.
+
+The list is ordered by when each note was last edited, newest first, and every row carries that time. Tapping a note opens read, edit, copy and delete. **Read** shows the whole note with the keyboard out of the way and the text selectable; **Edit** is one tap further on. Copying puts the title and text on the system clipboard, flagged sensitive on Android 13 and newer so the system does not preview it.
+
+The whole set of notes is one encrypted file, rewritten on every change, and the decrypted copy lives in memory only until the vault locks. Nothing is written to the phone's own notes app. Line breaks inside a note are kept; tabs and breaks typed into a title are replaced before writing, so no note can split or forge another.
+
 ## Browser
 
 The **Browser** tab is a single private browsing session. Type an address or words to search for; anything that is not a hostname is searched on Google, and every other scheme (`javascript:`, `file:`, `data:`, `intent:`) is searched for rather than loaded. Back, forward, reload, home and **Clear browsing now** sit under the address bar, and the system back gesture steps back through the page history before it locks the vault.
@@ -54,7 +63,8 @@ Switching to another tab stops the page's scripts and timers, and returning resu
 
 - Media contents use AES-256-GCM with a key held by Android Keystore. Independent 1 MiB authenticated chunks allow large videos without loading the whole video into memory. Chunk position, random file identifier, MIME type, and a terminal record are authenticated.
 - Contacts use the same key and the same authenticated format, in one file whose name does not end in `.vault`, so it is never listed as media. A save writes a temporary file and renames it, so a failed write leaves the stored contacts untouched. Separators typed into a name, number or note are replaced before writing, so no entry can split or forge another.
-- Vault files live in app-private, no-backup storage with random filenames. MIME type, ciphertext size, and modification time are not concealed. The number of saved contacts can be estimated from the size of the contacts file.
+- Notes use that same key, format and temporary-file write, in a second file that is likewise never listed as media. A note's text keeps its line breaks, so line breaks and tabs are escaped to two characters before writing and read back afterwards; a backslash typed into a note is stored doubled and comes back as itself. Separators typed into a title are replaced, as they are for a contact.
+- Vault files live in app-private, no-backup storage with random filenames. MIME type, ciphertext size, and modification time are not concealed. The number of saved contacts, and roughly how much has been written in notes, can be estimated from the size of those two files.
 - PIN verification uses PBKDF2-HMAC-SHA256, a random 32-byte salt, and 120,000 iterations. Five failed attempts trigger a 30-second cooldown. The PIN gates app access; it is not the encryption key.
 - Screenshots and screen recording are blocked using Android's secure-window flag. Android backup is disabled.
 - Two permissions are declared. `INTERNET` is used only by the browser tab; nothing else in the app opens a connection, and the calculator, vault and contacts work with the device offline. `CALL_PHONE` is optional and only requested if you turn on direct calling; the app works fully without it. Telephony is declared as a non-required feature so the app still installs on tablets. The file and contact pickers need no permission because they run in another app and hand back only the item you picked.
@@ -65,24 +75,30 @@ Switching to another tab stops the page's scripts and timers, and returning resu
 - Playback temporarily decrypts the selected item into the app-private cache. These files are removed on lock and next launch. This is not a guarantee against a rooted/compromised device or forensic recovery.
 - List and grid thumbnails decrypt images in memory only, never to disk. The decoded thumbnails are held in a 6 MB cache that is emptied on lock; the intermediate plaintext buffer is zeroed after decoding, but copies the garbage collector still holds are outside the app's control.
 - Calculation history is stored unencrypted in app preferences, like any calculator's history. Only expressions containing an operator are saved.
-- No PIN recovery. Uninstalling, clearing app data, or losing the device can permanently lose the vault, contacts included. Export needed files first and keep important numbers elsewhere. Exports are ordinary unencrypted files at the location you choose.
+- No PIN recovery. Uninstalling, clearing app data, or losing the device can permanently lose the vault, contacts and notes included. Export needed files first and keep important numbers and notes elsewhere. Exports are ordinary unencrypted files at the location you choose.
 - An interrupted export may leave a partial file at the chosen destination; delete it before retrying. Unfinished picker operations are not restored after process death.
 - This is an initial local prototype, not an independently audited security product. Media format support depends on the device. Images are sampled for display; EXIF rotation and animated image playback are not implemented.
 
 ## Build
 
-Open this folder in Android Studio with JDK 17 and Android SDK 35, or run Gradle 8.14.3:
+Open this folder in Android Studio with JDK 17 and Android SDK 36, or run Gradle 8.14.3:
 
 ```text
 ./gradlew :app:assembleDebug :app:lintDebug
 ```
 
-The debug APK is for testing. Store distribution requires your own release signing key and release build configuration.
+The debug APK is for testing. A store upload is a signed App Bundle:
+
+```text
+./gradlew :app:bundleRelease
+```
+
+That needs `keystore.properties` in the repository root, pointing at your own upload keystore — both are kept out of git. Without it the release build is unsigned and Play will reject it. Bump `versionCode` in `app/build.gradle` for every upload; Play refuses a code it has already seen.
 
 ## Checks
 
-Run `powershell -ExecutionPolicy Bypass -File tests/check.ps1` with `JAVA_HOME` set to JDK 17. The standalone tests cover 46 arithmetic checks (precedence, brackets, powers, percentages, degree trigonometry, logarithms, implicit multiplication and rejected input), 40 encryption roundtrip/tamper checks, including multi-chunk files, incorrect keys, modified metadata, missing terminal records, and appended data, 30 contact checks covering the record roundtrip, separators injected into a field, damaged records being skipped, and which characters reach a `tel:` URI, and 31 address-bar checks covering https upgrades, hostname versus search detection, other schemes being searched for rather than loaded, and the host shown for an address carrying embedded credentials. They test the formats on the JVM, not Android Keystore on a device.
+Run `powershell -ExecutionPolicy Bypass -File tests/check.ps1` with `JAVA_HOME` set to JDK 17. The standalone tests cover 46 arithmetic checks (precedence, brackets, powers, percentages, degree trigonometry, logarithms, implicit multiplication and rejected input), 40 encryption roundtrip/tamper checks, including multi-chunk files, incorrect keys, modified metadata, missing terminal records, and appended data, 30 contact checks covering the record roundtrip, separators injected into a field, damaged records being skipped, and which characters reach a `tel:` URI, 44 note checks covering the record roundtrip, line breaks and backslashes surviving the escaping, the heading and preview a row shows, separators injected into a title, and damaged records being skipped, and 31 address-bar checks covering https upgrades, hostname versus search detection, other schemes being searched for rather than loaded, and the host shown for an address carrying embedded credentials. They test the formats on the JVM, not Android Keystore on a device.
 
-On-device checks should cover PIN setup, changing the PIN, wrong-PIN cooldown, multiple photo/video imports, thumbnails in both layouts, multi-select export and delete, playback, single export, background locking, and process restart. For contacts: adding, editing and deleting an entry, importing through the contact picker and re-entering the PIN, calling through the dialer, granting and then revoking `CALL_PHONE`, and confirming entries survive a lock and unlock. For the tabs and browser: switching between all four tabs, importing from each media tab and landing back on it, loading a page and stepping back through history with the system back gesture, confirming a signed-in page is signed out again after a lock, and confirming **Clear browsing now** starts a fresh session. A physical phone or emulator is needed for these checks.
+On-device checks should cover PIN setup, changing the PIN, wrong-PIN cooldown, multiple photo/video imports, thumbnails in both layouts, multi-select export and delete, playback, single export, background locking, and process restart. For contacts: adding, editing and deleting an entry, importing through the contact picker and re-entering the PIN, calling through the dialer, granting and then revoking `CALL_PHONE`, and confirming entries survive a lock and unlock. For notes: writing a note of several lines, saving one with only a title and one with only text, editing it and seeing it move to the top of the list, copying, deleting, and confirming notes survive a lock and unlock. For the tabs and browser: switching between all five tabs, importing from each media tab and landing back on it, loading a page and stepping back through history with the system back gesture, confirming a signed-in page is signed out again after a lock, and confirming **Clear browsing now** starts a fresh session. A physical phone or emulator is needed for these checks.
 
 Implementation references: [Android Keystore](https://developer.android.com/privacy-and-security/keystore), [system document picker](https://developer.android.com/training/data-storage/shared/documents-files), [contact picker](https://developer.android.com/training/contacts-provider/retrieve-names).
