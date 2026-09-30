@@ -12,8 +12,8 @@ android {
         applicationId 'com.privatecalc.vault'
         minSdk 26
         targetSdk 36
-        versionCode 1
-        versionName '1.0'
+        versionCode 3
+        versionName '1.2'
     }
     signingConfigs {
         if (keystoreFile.exists()) release {
@@ -25,6 +25,8 @@ android {
     }
     buildTypes {
         release { if (keystoreFile.exists()) signingConfig signingConfigs.release }
+        // A debug build installs under its own application id, so testing it never touches the vault of an installed store build.
+        debug { applicationIdSuffix '.debug' }
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
 }

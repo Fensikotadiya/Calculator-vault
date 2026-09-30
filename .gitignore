@@ -8,3 +8,7 @@ local.properties
 keystore.properties
 *.jks
 *.keystore
+
+# Build artifacts (don't commit release bundles/APKs)
+release/*.aab
+release/*.apk
