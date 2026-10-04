@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">കാൽക്കുലേറ്റർ</string>
+    <string name="calc_caption_simple">ദൈനംദിനം, കൂടുതൽ എളുപ്പം</string>
+    <string name="calc_caption_scientific">ശാസ്ത്രീയം · ഡിഗ്രി</string>
+    <string name="calc_check">നിങ്ങളുടെ കണക്ക് പരിശോധിക്കുക</string>
+    <string name="calc_pin_hint">പിൻ നൽകി = അമർത്തുക</string>
+    <string name="calc_wait">വീണ്ടും ശ്രമിക്കും മുൻപ് അൽപ്പം കാത്തിരിക്കുക</string>
+    <string name="calc_scientific_show">ശാസ്ത്രീയ കീകൾ കാണിക്കുക</string>
+    <string name="calc_scientific_hide">ശാസ്ത്രീയ കീകൾ മറയ്ക്കുക</string>
+
+    <string name="history_title">കണക്കുകളുടെ ചരിത്രം</string>
+    <string name="history_empty">ഇതുവരെ ഒന്നും സംരക്ഷിച്ചിട്ടില്ല</string>
+    <plurals name="history_count">
+        <item quantity="one">ഈ ഉപകരണത്തിൽ %1$d കണക്ക് സംരക്ഷിച്ചു</item>
+        <item quantity="other">ഈ ഉപകരണത്തിൽ %1$d കണക്കുകൾ സംരക്ഷിച്ചു</item>
+    </plurals>
+    <string name="history_hint">= ഉപയോഗിച്ച് ചെയ്ത കണക്കുകൾ ഇവിടെ സൂക്ഷിക്കും. പിൻ ഒരിക്കലും സംരക്ഷിക്കില്ല.</string>
+    <string name="history_clear">ചരിത്രം മായ്ക്കുക</string>
+    <string name="history_clear_detail">സംരക്ഷിച്ച എല്ലാ കണക്കുകളും നീക്കം ചെയ്യുന്നു</string>
+    <string name="history_cleared">കണക്കുകളുടെ ചരിത്രം മായ്ച്ചു</string>
+
+    <string name="intro_title">നിങ്ങളുടെ സ്വകാര്യ കാൽക്കുലേറ്റർ</string>
+    <string name="intro_body">6–12 അക്ക പിൻ സജ്ജമാക്കുക. അത് കാൽക്കുലേറ്ററിൽ നൽകി = അമർത്തിയാൽ നിങ്ങളുടെ ഫോട്ടോ, വീഡിയോ വോൾട്ട് തുറക്കും.\n\nപിൻ വീണ്ടെടുക്കാൻ വഴിയില്ല. ആപ്പ് നീക്കം ചെയ്താലോ അതിന്റെ ഡാറ്റ മായ്ച്ചാലോ വോൾട്ടും പോകും. പ്രധാന ഫയലുകൾ ആദ്യം എക്സ്പോർട്ട് ചെയ്യുക.</string>
+    <string name="intro_action">പിൻ സജ്ജമാക്കുക</string>
+
+    <string name="pin_title">നിങ്ങളുടെ പിൻ ഉണ്ടാക്കുക</string>
+    <string name="pin_body">6–12 അക്കങ്ങൾ. കാൽക്കുലേറ്ററിൽ നൽകി = അമർത്തിയാൽ വോൾട്ട് തുറക്കും. വീണ്ടെടുക്കൽ ഇല്ല.</string>
+    <string name="pin_hint">പിൻ (6–12 അക്കങ്ങൾ)</string>
+    <string name="pin_confirm">പിൻ സ്ഥിരീകരിക്കുക</string>
+    <string name="pin_save">പിൻ സംരക്ഷിക്കുക</string>
+    <string name="pin_mismatch">6–12 അക്കങ്ങളുള്ള ഒരേ പിൻ രണ്ടുതവണ നൽകുക</string>
+    <string name="pin_saving">സംരക്ഷിക്കുന്നു…</string>
+    <string name="pin_saved">പിൻ സംരക്ഷിച്ചു. അത് നൽകി = അമർത്തി തുറക്കുക.</string>
+    <string name="pin_failed">പിൻ സംരക്ഷിക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="pin_show">പിൻ കാണിക്കുക</string>
+    <string name="pin_hide">പിൻ മറയ്ക്കുക</string>
+
+    <string name="lang_title">നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക</string>
+    <string name="lang_subtitle">പിന്നീട് മാറ്റാൻ കാൽക്കുലേറ്ററിലെ ഗ്ലോബിൽ ടാപ്പ് ചെയ്യുക</string>
+    <string name="lang_continue">തുടരുക</string>
+    <string name="lang_selected">തിരഞ്ഞെടുത്തു</string>
+    <string name="lang_tap">ഉപയോഗിക്കാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="lang_button">ഭാഷ</string>
+
+    <string name="ad_badge">പരസ്യം</string>
+</resources>

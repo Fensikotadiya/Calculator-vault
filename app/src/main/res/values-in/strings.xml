@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Indonesian. The folder is values-in, not values-id: Java still reports this language as the obsolete
+     code "in", and that is what the resource system matches against. Indonesian has one plural form. -->
+<resources>
+    <string name="app_title">Kalkulator</string>
+    <string name="calc_caption_simple">SEHARI-HARI, LEBIH SEDERHANA</string>
+    <string name="calc_caption_scientific">ILMIAH · DERAJAT</string>
+    <string name="calc_check">Periksa perhitungan Anda</string>
+    <string name="calc_pin_hint">Masukkan PIN lalu ketuk =</string>
+    <string name="calc_wait">Tunggu sebentar sebelum mencoba lagi</string>
+    <string name="calc_scientific_show">Tampilkan tombol ilmiah</string>
+    <string name="calc_scientific_hide">Sembunyikan tombol ilmiah</string>
+
+    <string name="history_title">Riwayat perhitungan</string>
+    <string name="history_empty">Belum ada yang disimpan</string>
+    <plurals name="history_count">
+        <item quantity="other">%1$d perhitungan tersimpan di perangkat ini</item>
+    </plurals>
+    <string name="history_hint">Perhitungan yang Anda jalankan dengan = disimpan di sini. PIN tidak pernah disimpan.</string>
+    <string name="history_clear">Hapus riwayat</string>
+    <string name="history_clear_detail">Menghapus semua perhitungan tersimpan</string>
+    <string name="history_cleared">Riwayat perhitungan dihapus</string>
+
+    <string name="intro_title">Kalkulator pribadi Anda</string>
+    <string name="intro_body">Tetapkan PIN 6–12 digit. Masukkan di kalkulator lalu ketuk = untuk membuka brankas foto dan video Anda.\n\nTidak ada pemulihan PIN. Mencopot aplikasi atau menghapus datanya akan menghapus brankas. Ekspor file penting lebih dulu.</string>
+    <string name="intro_action">Tetapkan PIN</string>
+
+    <string name="pin_title">Buat PIN Anda</string>
+    <string name="pin_body">6–12 digit. Masukkan di kalkulator lalu ketuk = untuk membuka brankas. Tidak ada pemulihan.</string>
+    <string name="pin_hint">PIN (6–12 digit)</string>
+    <string name="pin_confirm">Konfirmasi PIN</string>
+    <string name="pin_save">Simpan PIN</string>
+    <string name="pin_mismatch">Gunakan dua PIN sama yang terdiri dari 6–12 digit</string>
+    <string name="pin_saving">Menyimpan…</string>
+    <string name="pin_saved">PIN disimpan. Masukkan lalu ketuk = untuk membuka.</string>
+    <string name="pin_failed">Tidak dapat menyimpan PIN. Coba lagi.</string>
+    <string name="pin_show">Tampilkan PIN</string>
+    <string name="pin_hide">Sembunyikan PIN</string>
+
+    <string name="lang_title">Pilih bahasa Anda</string>
+    <string name="lang_subtitle">Ketuk globe di kalkulator untuk mengubahnya nanti</string>
+    <string name="lang_continue">Lanjutkan</string>
+    <string name="lang_selected">Dipilih</string>
+    <string name="lang_tap">Ketuk untuk memakai</string>
+    <string name="lang_button">Bahasa</string>
+
+    <string name="ad_badge">Iklan</string>
+</resources>

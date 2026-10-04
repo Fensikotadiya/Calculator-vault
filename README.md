@@ -1,6 +1,6 @@
 # Calculator Vault for Android
 
-A native Java Android app with a working calculator and a PIN-protected local vault for photos, videos, phone numbers, and notes, plus a private browser. Android 8.0 or newer. No ads, accounts, analytics, or third-party SDKs. The browser is the only part that uses the network.
+A native Java Android app with a working calculator and a PIN-protected local vault for photos, videos, phone numbers, and notes, plus a private browser. Android 8.0 or newer. No accounts, analytics, or crash reporting. Google AdMob supplies a native ad on the calculator and in the vault tabs; that and the browser are the only parts that use the network, and nothing in the vault is ever sent anywhere.
 
 ## Use
 
@@ -67,7 +67,7 @@ Switching to another tab stops the page's scripts and timers, and returning resu
 - Vault files live in app-private, no-backup storage with random filenames. MIME type, ciphertext size, and modification time are not concealed. The number of saved contacts, and roughly how much has been written in notes, can be estimated from the size of those two files.
 - PIN verification uses PBKDF2-HMAC-SHA256, a random 32-byte salt, and 120,000 iterations. Five failed attempts trigger a 30-second cooldown. The PIN gates app access; it is not the encryption key.
 - Screenshots and screen recording are blocked using Android's secure-window flag. Android backup is disabled.
-- Two permissions are declared. `INTERNET` is used only by the browser tab; nothing else in the app opens a connection, and the calculator, vault and contacts work with the device offline. `CALL_PHONE` is optional and only requested if you turn on direct calling; the app works fully without it. Telephony is declared as a non-required feature so the app still installs on tablets. The file and contact pickers need no permission because they run in another app and hand back only the item you picked.
+- Three permissions are declared in the app's own manifest, and the ad SDK merges in several more of its own (`ACCESS_NETWORK_STATE`, `WAKE_LOCK`, `FOREGROUND_SERVICE` and the `ACCESS_ADSERVICES_*` set). `INTERNET` is used by the browser tab and by the ad slots; the calculator, vault, contacts and notes all work with the device offline, and an ad that cannot load simply leaves no gap. `AD_ID` lets the ad SDK read the advertising identifier. `CALL_PHONE` is optional and only requested if you turn on direct calling; the app works fully without it. Telephony is declared as a non-required feature so the app still installs on tablets. The file and contact pickers need no permission because they run in another app and hand back only the item you picked.
 - Browsing is private on this device, not anonymous on the network. The sites you visit, your network, and your provider see the traffic as they would from any browser. The app adds no proxy, VPN, or tracker blocking, and the vault hides nothing at that level.
 - The browser loads `https` only. Cookies last for the unlocked session and third-party cookies are refused; the cache, site storage, form data and page history are erased and the browser destroyed on every lock, which includes leaving the app. Downloads are refused so no plaintext file is written outside the vault. If the process is killed without pausing, by a crash or a force stop, WebView files may survive until the next lock clears them.
 - Pages render inside the same secure window as the rest of the app, so the screenshot and screen-recording block covers browsing too. JavaScript is on, as a usable browser needs it; camera, microphone and location requests from a page are denied without asking.
@@ -94,6 +94,23 @@ The debug APK is for testing. A store upload is a signed App Bundle:
 ```
 
 That needs `keystore.properties` in the repository root, pointing at your own upload keystore — both are kept out of git. Without it the release build is unsigned and Play will reject it. Bump `versionCode` in `app/build.gradle` for every upload; Play refuses a code it has already seen.
+
+## Ads
+
+One Google AdMob native ad is shared by every screen that shows one: the short shape sits under the calculator keypad, and the tall shape with the media panel sits in the Photos, Videos, Contacts and Notes tabs. The browser tab has none, and neither does selection mode, where every tap is meant to pick an item.
+
+`NativeAds` keeps a single loaded ad rather than one per slot. These screens are rebuilt from scratch on every redraw — each keypress rebuilds the calculator — so a slot that owned its own ad would fire a request per keystroke. Instead one ad is loaded, re-bound to a fresh view on each redraw, and replaced only once it is a minute old; a refused request backs off for thirty seconds. A slot with nothing to show is an empty container of zero height, so a screen with no fill looks exactly as it did before ads existed.
+
+Ad unit identifiers live at the top of `app/build.gradle`:
+
+```groovy
+def liveAppId = testAppId          // <- your ca-app-pub-0000000000000000~0000000000
+def liveNativeUnit = testNativeUnit // <- your ca-app-pub-0000000000000000/0000000000
+```
+
+Replace those two with your own from the AdMob console before publishing. They are Google's sample units until you do, so a fresh clone builds and shows real test ads with no account. **Debug builds always use the sample units** regardless of what is set there — requesting live ads from a development device is what gets an AdMob account suspended. The app id reaches the manifest through the `${admobAppId}` placeholder, and the unit reaches the code through `BuildConfig.NATIVE_AD_UNIT`; a missing or malformed app id crashes the app at startup rather than failing quietly.
+
+Not yet wired: a consent flow. Google's EU user consent policy requires a certified consent platform before serving ads to users in the EEA or the UK, which means adding `com.google.android.ump:user-messaging-platform` and a message configured in the AdMob console. Until that exists, restrict the release to countries where it is not required, or add it before publishing.
 
 ## Checks
 

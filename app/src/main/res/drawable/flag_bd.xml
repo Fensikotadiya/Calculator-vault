@@ -1,0 +1,5 @@
+<!-- Bangladesh. The disc sits toward the hoist, as on the real flag. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#006A4D" android:pathData="M0,0h60v40H0z" />
+    <path android:fillColor="#F42A41" android:pathData="M16,20a10,10 0 1,0 20,0a10,10 0 1,0 -20,0" />
+</vector>

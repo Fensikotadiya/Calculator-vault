@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Only the screens shown before the vault is unlocked are translated: the language picker, the calculator,
+     the history sheet and first-run PIN setup. The vault's own screens are still English literals in MainActivity. -->
+<resources>
+    <string name="app_title">Calculator</string>
+    <string name="calc_caption_simple">EVERYDAY, SIMPLIFIED</string>
+    <string name="calc_caption_scientific">SCIENTIFIC · DEGREES</string>
+    <string name="calc_check">Check your calculation</string>
+    <string name="calc_pin_hint">Enter your PIN and tap =</string>
+    <string name="calc_wait">Please wait before trying again</string>
+    <string name="calc_scientific_show">Show scientific keys</string>
+    <string name="calc_scientific_hide">Hide scientific keys</string>
+
+    <string name="history_title">Calculation history</string>
+    <string name="history_empty">Nothing saved yet</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d calculation saved on this device</item>
+        <item quantity="other">%1$d calculations saved on this device</item>
+    </plurals>
+    <string name="history_hint">Calculations you run with = are kept here. PIN entries are never saved.</string>
+    <string name="history_clear">Clear history</string>
+    <string name="history_clear_detail">Removes all saved calculations</string>
+    <string name="history_cleared">Calculation history cleared</string>
+
+    <string name="intro_title">Your private calculator</string>
+    <string name="intro_body">Set a 6–12 digit PIN. Enter it in the calculator and tap = to open your photo and video vault.\n\nThere is no PIN recovery. Uninstalling the app or clearing its data removes the vault. Export important files first.</string>
+    <string name="intro_action">Set PIN</string>
+
+    <string name="pin_title">Create your PIN</string>
+    <string name="pin_body">6–12 digits. Enter it in the calculator and tap = to open your vault. There is no recovery.</string>
+    <string name="pin_hint">PIN (6–12 digits)</string>
+    <string name="pin_confirm">Confirm PIN</string>
+    <string name="pin_save">Save PIN</string>
+    <string name="pin_mismatch">Use matching 6–12 digit PINs</string>
+    <string name="pin_saving">Saving…</string>
+    <string name="pin_saved">PIN saved. Enter it and tap = to unlock.</string>
+    <string name="pin_failed">Could not save PIN. Try again.</string>
+    <string name="pin_show">Show PIN</string>
+    <string name="pin_hide">Hide PIN</string>
+
+    <string name="lang_title">Choose your language</string>
+    <string name="lang_subtitle">Tap the globe on the calculator to change it later</string>
+    <string name="lang_continue">Continue</string>
+    <string name="lang_selected">Selected</string>
+    <string name="lang_tap">Tap to use</string>
+    <string name="lang_button">Language</string>
+
+    <!-- AdMob requires the ad to be marked as one. Short enough to sit beside the headline. -->
+    <string name="ad_badge">Ad</string>
+</resources>

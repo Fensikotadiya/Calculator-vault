@@ -1,11 +1,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Needed only by the private browser tab. Nothing else in the app talks to the network. -->
+    <!-- Used by the private browser tab, and by the ad SDK, which reaches Google's ad servers from every screen that shows a slot. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- The advertising id the ad SDK reads. Declared so the Play Data safety form matches what actually ships. -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <!-- Optional. Only requested if you turn on direct calling; without it calls open in the phone dialer. -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- Declaring CALL_PHONE otherwise makes telephony a hard requirement and hides the app from tablets. -->
     <uses-feature android:name="android.hardware.telephony" android:required="false" />
     <application android:theme="@android:style/Theme.Material.NoActionBar" android:label="Calculator" android:icon="@drawable/ic_calculator" android:allowBackup="false" android:fullBackupContent="false" android:dataExtractionRules="@xml/data_extraction_rules" android:usesCleartextTraffic="false" android:supportsRtl="true" android:enableOnBackInvokedCallback="true">
+        <!-- Set per build type in app/build.gradle: the sample app id in debug, yours in release. A wrong or missing value crashes the app at startup. -->
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="${admobAppId}" />
+        <!-- Initialisation and the first request are started by the app itself, off the thread drawing the calculator. -->
+        <meta-data android:name="com.google.android.gms.ads.flag.OPTIMIZE_INITIALIZATION" android:value="true" />
+        <meta-data android:name="com.google.android.gms.ads.flag.OPTIMIZE_AD_LOADING" android:value="true" />
         <activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize" android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

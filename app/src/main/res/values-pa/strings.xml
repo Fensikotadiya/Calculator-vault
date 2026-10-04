@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">ਕੈਲਕੁਲੇਟਰ</string>
+    <string name="calc_caption_simple">ਰੋਜ਼ਾਨਾ, ਹੋਰ ਸੌਖਾ</string>
+    <string name="calc_caption_scientific">ਵਿਗਿਆਨਕ · ਡਿਗਰੀ</string>
+    <string name="calc_check">ਆਪਣਾ ਹਿਸਾਬ ਜਾਂਚੋ</string>
+    <string name="calc_pin_hint">ਆਪਣਾ ਪਿੰਨ ਪਾਓ ਅਤੇ = ਦਬਾਓ</string>
+    <string name="calc_wait">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਥੋੜ੍ਹਾ ਰੁਕੋ</string>
+    <string name="calc_scientific_show">ਵਿਗਿਆਨਕ ਕੁੰਜੀਆਂ ਦਿਖਾਓ</string>
+    <string name="calc_scientific_hide">ਵਿਗਿਆਨਕ ਕੁੰਜੀਆਂ ਲੁਕਾਓ</string>
+
+    <string name="history_title">ਹਿਸਾਬ ਦਾ ਇਤਿਹਾਸ</string>
+    <string name="history_empty">ਹਾਲੇ ਕੁਝ ਵੀ ਸੰਭਾਲਿਆ ਨਹੀਂ ਗਿਆ</string>
+    <plurals name="history_count">
+        <item quantity="one">ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ %1$d ਹਿਸਾਬ ਸੰਭਾਲਿਆ ਗਿਆ</item>
+        <item quantity="other">ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ %1$d ਹਿਸਾਬ ਸੰਭਾਲੇ ਗਏ</item>
+    </plurals>
+    <string name="history_hint">= ਨਾਲ ਕੀਤੇ ਹਿਸਾਬ ਇੱਥੇ ਰੱਖੇ ਜਾਂਦੇ ਹਨ। ਪਿੰਨ ਕਦੇ ਵੀ ਨਹੀਂ ਸੰਭਾਲਿਆ ਜਾਂਦਾ।</string>
+    <string name="history_clear">ਇਤਿਹਾਸ ਮਿਟਾਓ</string>
+    <string name="history_clear_detail">ਸਾਰੇ ਸੰਭਾਲੇ ਹਿਸਾਬ ਹਟਾ ਦਿੰਦਾ ਹੈ</string>
+    <string name="history_cleared">ਹਿਸਾਬ ਦਾ ਇਤਿਹਾਸ ਮਿਟਾ ਦਿੱਤਾ</string>
+
+    <string name="intro_title">ਤੁਹਾਡਾ ਨਿੱਜੀ ਕੈਲਕੁਲੇਟਰ</string>
+    <string name="intro_body">6–12 ਅੰਕਾਂ ਦਾ ਪਿੰਨ ਰੱਖੋ। ਉਹ ਕੈਲਕੁਲੇਟਰ ਵਿੱਚ ਪਾ ਕੇ = ਦਬਾਓ, ਤੁਹਾਡੀ ਫ਼ੋਟੋ ਤੇ ਵੀਡੀਓ ਵਾਲਟ ਖੁੱਲ੍ਹ ਜਾਵੇਗੀ।\n\nਪਿੰਨ ਵਾਪਸ ਨਹੀਂ ਮਿਲ ਸਕਦਾ। ਐਪ ਹਟਾਉਣ ਜਾਂ ਇਸਦਾ ਡਾਟਾ ਮਿਟਾਉਣ ਨਾਲ ਵਾਲਟ ਵੀ ਚਲੀ ਜਾਂਦੀ ਹੈ। ਜ਼ਰੂਰੀ ਫ਼ਾਈਲਾਂ ਪਹਿਲਾਂ ਬਰਾਮਦ ਕਰੋ।</string>
+    <string name="intro_action">ਪਿੰਨ ਰੱਖੋ</string>
+
+    <string name="pin_title">ਆਪਣਾ ਪਿੰਨ ਬਣਾਓ</string>
+    <string name="pin_body">6–12 ਅੰਕ। ਕੈਲਕੁਲੇਟਰ ਵਿੱਚ ਪਾ ਕੇ = ਦਬਾਓ, ਵਾਲਟ ਖੁੱਲ੍ਹ ਜਾਵੇਗੀ। ਵਾਪਸ ਨਹੀਂ ਮਿਲਦਾ।</string>
+    <string name="pin_hint">ਪਿੰਨ (6–12 ਅੰਕ)</string>
+    <string name="pin_confirm">ਪਿੰਨ ਪੱਕਾ ਕਰੋ</string>
+    <string name="pin_save">ਪਿੰਨ ਸੰਭਾਲੋ</string>
+    <string name="pin_mismatch">6–12 ਅੰਕਾਂ ਵਾਲਾ ਇੱਕੋ ਪਿੰਨ ਦੋ ਵਾਰ ਪਾਓ</string>
+    <string name="pin_saving">ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ ਹੈ…</string>
+    <string name="pin_saved">ਪਿੰਨ ਸੰਭਾਲ ਲਿਆ। ਇਹ ਪਾ ਕੇ = ਦਬਾ ਕੇ ਖੋਲ੍ਹੋ।</string>
+    <string name="pin_failed">ਪਿੰਨ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="pin_show">ਪਿੰਨ ਦਿਖਾਓ</string>
+    <string name="pin_hide">ਪਿੰਨ ਲੁਕਾਓ</string>
+
+    <string name="lang_title">ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ</string>
+    <string name="lang_subtitle">ਬਾਅਦ ਵਿੱਚ ਬਦਲਣ ਲਈ ਕੈਲਕੁਲੇਟਰ ਉੱਤੇ ਗਲੋਬ ਨੂੰ ਟੈਪ ਕਰੋ</string>
+    <string name="lang_continue">ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="lang_selected">ਚੁਣੀ ਗਈ</string>
+    <string name="lang_tap">ਵਰਤਣ ਲਈ ਟੈਪ ਕਰੋ</string>
+    <string name="lang_button">ਭਾਸ਼ਾ</string>
+
+    <string name="ad_badge">ਇਸ਼ਤਿਹਾਰ</string>
+</resources>

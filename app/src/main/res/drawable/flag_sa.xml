@@ -1,0 +1,8 @@
+<!-- Saudi Arabia, the usual stand-in for Arabic. The shahada is suggested by two strokes; the sword below is drawn. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#006C35" android:pathData="M0,0h60v40H0z" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2.2" android:pathData="M13,15H47" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.6" android:pathData="M16,20H44" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.8" android:pathData="M13,28H44" />
+    <path android:fillColor="#FFFFFF" android:pathData="M44,28l6,-2.4v4.8z" />
+</vector>

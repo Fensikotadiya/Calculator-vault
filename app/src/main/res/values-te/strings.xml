@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">కాలిక్యులేటర్</string>
+    <string name="calc_caption_simple">రోజువారీ, మరింత సులభం</string>
+    <string name="calc_caption_scientific">సైంటిఫిక్ · డిగ్రీలు</string>
+    <string name="calc_check">మీ లెక్కను సరిచూసుకోండి</string>
+    <string name="calc_pin_hint">మీ పిన్ ఎంటర్ చేసి = నొక్కండి</string>
+    <string name="calc_wait">మళ్లీ ప్రయత్నించే ముందు కాసేపు ఆగండి</string>
+    <string name="calc_scientific_show">సైంటిఫిక్ కీలను చూపు</string>
+    <string name="calc_scientific_hide">సైంటిఫిక్ కీలను దాచు</string>
+
+    <string name="history_title">లెక్కల చరిత్ర</string>
+    <string name="history_empty">ఇంకా ఏమీ సేవ్ కాలేదు</string>
+    <plurals name="history_count">
+        <item quantity="one">ఈ పరికరంలో %1$d లెక్క సేవ్ అయింది</item>
+        <item quantity="other">ఈ పరికరంలో %1$d లెక్కలు సేవ్ అయ్యాయి</item>
+    </plurals>
+    <string name="history_hint">= తో చేసిన లెక్కలు ఇక్కడ ఉంటాయి. పిన్ ఎప్పుడూ సేవ్ కాదు.</string>
+    <string name="history_clear">చరిత్రను తొలగించు</string>
+    <string name="history_clear_detail">సేవ్ చేసిన అన్ని లెక్కలను తొలగిస్తుంది</string>
+    <string name="history_cleared">లెక్కల చరిత్ర తొలగించబడింది</string>
+
+    <string name="intro_title">మీ సొంత కాలిక్యులేటర్</string>
+    <string name="intro_body">6–12 అంకెల పిన్ పెట్టుకోండి. దాన్ని కాలిక్యులేటర్‌లో ఎంటర్ చేసి = నొక్కితే మీ ఫొటో, వీడియో వాల్ట్ తెరుచుకుంటుంది.\n\nపిన్‌ను తిరిగి పొందే మార్గం లేదు. యాప్‌ను తీసేసినా, దాని డేటా తొలగించినా వాల్ట్ కూడా పోతుంది. ముఖ్యమైన ఫైళ్లను ముందే ఎక్స్‌పోర్ట్ చేసుకోండి.</string>
+    <string name="intro_action">పిన్ పెట్టు</string>
+
+    <string name="pin_title">మీ పిన్ సృష్టించండి</string>
+    <string name="pin_body">6–12 అంకెలు. కాలిక్యులేటర్‌లో ఎంటర్ చేసి = నొక్కితే వాల్ట్ తెరుచుకుంటుంది. తిరిగి పొందడం కుదరదు.</string>
+    <string name="pin_hint">పిన్ (6–12 అంకెలు)</string>
+    <string name="pin_confirm">పిన్‌ను నిర్ధారించు</string>
+    <string name="pin_save">పిన్‌ను సేవ్ చేయి</string>
+    <string name="pin_mismatch">6–12 అంకెల ఒకే పిన్‌ను రెండుసార్లు ఎంటర్ చేయండి</string>
+    <string name="pin_saving">సేవ్ చేస్తోంది…</string>
+    <string name="pin_saved">పిన్ సేవ్ అయింది. దాన్ని ఎంటర్ చేసి = నొక్కి అన్‌లాక్ చేయండి.</string>
+    <string name="pin_failed">పిన్ సేవ్ చేయలేకపోయాం. మళ్లీ ప్రయత్నించండి.</string>
+    <string name="pin_show">పిన్ చూపు</string>
+    <string name="pin_hide">పిన్ దాచు</string>
+
+    <string name="lang_title">మీ భాషను ఎంచుకోండి</string>
+    <string name="lang_subtitle">తర్వాత మార్చడానికి కాలిక్యులేటర్‌లోని గ్లోబ్‌ను తాకండి</string>
+    <string name="lang_continue">కొనసాగించు</string>
+    <string name="lang_selected">ఎంచుకున్నది</string>
+    <string name="lang_tap">వాడటానికి తాకండి</string>
+    <string name="lang_button">భాష</string>
+
+    <string name="ad_badge">ప్రకటన</string>
+</resources>

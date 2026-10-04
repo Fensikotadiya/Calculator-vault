@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Persian is written right to left; the picker and every screen lay themselves out that way automatically. -->
+<resources>
+    <string name="app_title">ماشین‌حساب</string>
+    <string name="calc_caption_simple">هر روز، ساده‌تر</string>
+    <string name="calc_caption_scientific">علمی · درجه</string>
+    <string name="calc_check">محاسبه‌تان را بررسی کنید</string>
+    <string name="calc_pin_hint">پین را وارد کنید و = را بزنید</string>
+    <string name="calc_wait">پیش از تلاش دوباره کمی صبر کنید</string>
+    <string name="calc_scientific_show">نمایش کلیدهای علمی</string>
+    <string name="calc_scientific_hide">پنهان کردن کلیدهای علمی</string>
+
+    <string name="history_title">تاریخچه محاسبات</string>
+    <string name="history_empty">هنوز چیزی ذخیره نشده</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d محاسبه در این دستگاه ذخیره شده است</item>
+        <item quantity="other">%1$d محاسبه در این دستگاه ذخیره شده است</item>
+    </plurals>
+    <string name="history_hint">محاسبه‌هایی که با = انجام می‌دهید اینجا نگه داشته می‌شوند. پین هرگز ذخیره نمی‌شود.</string>
+    <string name="history_clear">پاک کردن تاریخچه</string>
+    <string name="history_clear_detail">همه محاسبه‌های ذخیره‌شده را حذف می‌کند</string>
+    <string name="history_cleared">تاریخچه محاسبات پاک شد</string>
+
+    <string name="intro_title">ماشین‌حساب خصوصی شما</string>
+    <string name="intro_body">یک پین ۶ تا ۱۲ رقمی تعیین کنید. آن را در ماشین‌حساب وارد کنید و = را بزنید تا گاوصندوق عکس و ویدیوی شما باز شود.\n\nبازیابی پین ممکن نیست. حذف برنامه یا پاک کردن داده‌هایش گاوصندوق را هم از بین می‌برد. فایل‌های مهم را از پیش خارج کنید.</string>
+    <string name="intro_action">تعیین پین</string>
+
+    <string name="pin_title">پین خود را بسازید</string>
+    <string name="pin_body">۶ تا ۱۲ رقم. آن را در ماشین‌حساب وارد کنید و = را بزنید تا گاوصندوق باز شود. بازیابی وجود ندارد.</string>
+    <string name="pin_hint">پین (۶ تا ۱۲ رقم)</string>
+    <string name="pin_confirm">تأیید پین</string>
+    <string name="pin_save">ذخیره پین</string>
+    <string name="pin_mismatch">یک پین ۶ تا ۱۲ رقمی را دو بار یکسان وارد کنید</string>
+    <string name="pin_saving">در حال ذخیره…</string>
+    <string name="pin_saved">پین ذخیره شد. آن را وارد کنید و = را بزنید تا باز شود.</string>
+    <string name="pin_failed">پین ذخیره نشد. دوباره تلاش کنید.</string>
+    <string name="pin_show">نمایش پین</string>
+    <string name="pin_hide">پنهان کردن پین</string>
+
+    <string name="lang_title">زبان خود را انتخاب کنید</string>
+    <string name="lang_subtitle">برای تغییر بعدی، روی کره در ماشین‌حساب بزنید</string>
+    <string name="lang_continue">ادامه</string>
+    <string name="lang_selected">انتخاب‌شده</string>
+    <string name="lang_tap">برای استفاده بزنید</string>
+    <string name="lang_button">زبان</string>
+
+    <string name="ad_badge">تبلیغ</string>
+</resources>

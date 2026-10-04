@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vietnamese has one plural form. -->
+<resources>
+    <string name="app_title">Máy tính</string>
+    <string name="calc_caption_simple">HẰNG NGÀY, ĐƠN GIẢN HƠN</string>
+    <string name="calc_caption_scientific">KHOA HỌC · ĐỘ</string>
+    <string name="calc_check">Kiểm tra phép tính của bạn</string>
+    <string name="calc_pin_hint">Nhập mã PIN rồi nhấn =</string>
+    <string name="calc_wait">Vui lòng đợi trước khi thử lại</string>
+    <string name="calc_scientific_show">Hiện phím khoa học</string>
+    <string name="calc_scientific_hide">Ẩn phím khoa học</string>
+
+    <string name="history_title">Lịch sử tính toán</string>
+    <string name="history_empty">Chưa lưu gì</string>
+    <plurals name="history_count">
+        <item quantity="other">Đã lưu %1$d phép tính trên thiết bị này</item>
+    </plurals>
+    <string name="history_hint">Các phép tính bạn chạy bằng = được giữ ở đây. Mã PIN không bao giờ được lưu.</string>
+    <string name="history_clear">Xóa lịch sử</string>
+    <string name="history_clear_detail">Xóa mọi phép tính đã lưu</string>
+    <string name="history_cleared">Đã xóa lịch sử tính toán</string>
+
+    <string name="intro_title">Máy tính riêng của bạn</string>
+    <string name="intro_body">Đặt mã PIN 6–12 chữ số. Nhập mã đó vào máy tính rồi nhấn = để mở kho ảnh và video của bạn.\n\nKhông có cách khôi phục mã PIN. Gỡ ứng dụng hoặc xóa dữ liệu của nó sẽ xóa kho. Hãy xuất các tệp quan trọng trước.</string>
+    <string name="intro_action">Đặt mã PIN</string>
+
+    <string name="pin_title">Tạo mã PIN của bạn</string>
+    <string name="pin_body">6–12 chữ số. Nhập mã đó vào máy tính rồi nhấn = để mở kho. Không có cách khôi phục.</string>
+    <string name="pin_hint">Mã PIN (6–12 chữ số)</string>
+    <string name="pin_confirm">Xác nhận mã PIN</string>
+    <string name="pin_save">Lưu mã PIN</string>
+    <string name="pin_mismatch">Hãy nhập hai mã PIN giống nhau gồm 6–12 chữ số</string>
+    <string name="pin_saving">Đang lưu…</string>
+    <string name="pin_saved">Đã lưu mã PIN. Nhập mã rồi nhấn = để mở khóa.</string>
+    <string name="pin_failed">Không lưu được mã PIN. Hãy thử lại.</string>
+    <string name="pin_show">Hiện mã PIN</string>
+    <string name="pin_hide">Ẩn mã PIN</string>
+
+    <string name="lang_title">Chọn ngôn ngữ của bạn</string>
+    <string name="lang_subtitle">Nhấn vào quả địa cầu trên máy tính để đổi sau</string>
+    <string name="lang_continue">Tiếp tục</string>
+    <string name="lang_selected">Đã chọn</string>
+    <string name="lang_tap">Nhấn để dùng</string>
+    <string name="lang_button">Ngôn ngữ</string>
+
+    <string name="ad_badge">Quảng cáo</string>
+</resources>

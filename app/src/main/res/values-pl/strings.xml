@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Polish counts in four categories, so history_count carries one, few, many and other. -->
+<resources>
+    <string name="app_title">Kalkulator</string>
+    <string name="calc_caption_simple">CODZIENNIE, PROŚCIEJ</string>
+    <string name="calc_caption_scientific">NAUKOWY · STOPNIE</string>
+    <string name="calc_check">Sprawdź swoje obliczenie</string>
+    <string name="calc_pin_hint">Wpisz PIN i naciśnij =</string>
+    <string name="calc_wait">Poczekaj przed kolejną próbą</string>
+    <string name="calc_scientific_show">Pokaż klawisze naukowe</string>
+    <string name="calc_scientific_hide">Ukryj klawisze naukowe</string>
+
+    <string name="history_title">Historia obliczeń</string>
+    <string name="history_empty">Nic jeszcze nie zapisano</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d obliczenie zapisane na tym urządzeniu</item>
+        <item quantity="few">%1$d obliczenia zapisane na tym urządzeniu</item>
+        <item quantity="many">%1$d obliczeń zapisanych na tym urządzeniu</item>
+        <item quantity="other">%1$d obliczenia zapisane na tym urządzeniu</item>
+    </plurals>
+    <string name="history_hint">Obliczenia wykonane przyciskiem = są tutaj zapisywane. Kody PIN nigdy nie są zapisywane.</string>
+    <string name="history_clear">Wyczyść historię</string>
+    <string name="history_clear_detail">Usuwa wszystkie zapisane obliczenia</string>
+    <string name="history_cleared">Historia obliczeń wyczyszczona</string>
+
+    <string name="intro_title">Twój prywatny kalkulator</string>
+    <string name="intro_body">Ustaw PIN z 6–12 cyfr. Wpisz go w kalkulatorze i naciśnij =, aby otworzyć sejf na zdjęcia i filmy.\n\nNie ma odzyskiwania kodu PIN. Odinstalowanie aplikacji lub wyczyszczenie jej danych usuwa sejf. Najpierw wyeksportuj ważne pliki.</string>
+    <string name="intro_action">Ustaw PIN</string>
+
+    <string name="pin_title">Utwórz PIN</string>
+    <string name="pin_body">6–12 cyfr. Wpisz go w kalkulatorze i naciśnij =, aby otworzyć sejf. Nie ma odzyskiwania.</string>
+    <string name="pin_hint">PIN (6–12 cyfr)</string>
+    <string name="pin_confirm">Potwierdź PIN</string>
+    <string name="pin_save">Zapisz PIN</string>
+    <string name="pin_mismatch">Podaj dwa takie same kody PIN z 6–12 cyfr</string>
+    <string name="pin_saving">Zapisywanie…</string>
+    <string name="pin_saved">PIN zapisany. Wpisz go i naciśnij =, aby odblokować.</string>
+    <string name="pin_failed">Nie udało się zapisać kodu PIN. Spróbuj ponownie.</string>
+    <string name="pin_show">Pokaż PIN</string>
+    <string name="pin_hide">Ukryj PIN</string>
+
+    <string name="lang_title">Wybierz język</string>
+    <string name="lang_subtitle">Dotknij globusa w kalkulatorze, aby zmienić go później</string>
+    <string name="lang_continue">Dalej</string>
+    <string name="lang_selected">Wybrany</string>
+    <string name="lang_tap">Dotknij, aby użyć</string>
+    <string name="lang_button">Język</string>
+
+    <string name="ad_badge">Reklama</string>
+</resources>

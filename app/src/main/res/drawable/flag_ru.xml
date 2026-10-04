@@ -1,0 +1,6 @@
+<!-- Russia. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#FFFFFF" android:pathData="M0,0h60v13.33H0z" />
+    <path android:fillColor="#0039A6" android:pathData="M0,13.33h60v13.34H0z" />
+    <path android:fillColor="#D52B1E" android:pathData="M0,26.67h60v13.33H0z" />
+</vector>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Urdu is written right to left; the picker and every screen lay themselves out that way automatically. -->
+<resources>
+    <string name="app_title">کیلکولیٹر</string>
+    <string name="calc_caption_simple">روزمرہ، مزید آسان</string>
+    <string name="calc_caption_scientific">سائنسی · ڈگری</string>
+    <string name="calc_check">اپنا حساب دیکھ لیں</string>
+    <string name="calc_pin_hint">اپنا پن درج کریں اور = دبائیں</string>
+    <string name="calc_wait">دوبارہ کوشش سے پہلے کچھ دیر رکیں</string>
+    <string name="calc_scientific_show">سائنسی کلیدیں دکھائیں</string>
+    <string name="calc_scientific_hide">سائنسی کلیدیں چھپائیں</string>
+
+    <string name="history_title">حساب کی تاریخ</string>
+    <string name="history_empty">ابھی کچھ محفوظ نہیں</string>
+    <plurals name="history_count">
+        <item quantity="one">اس آلے پر %1$d حساب محفوظ ہے</item>
+        <item quantity="other">اس آلے پر %1$d حساب محفوظ ہیں</item>
+    </plurals>
+    <string name="history_hint">= سے کیے گئے حساب یہاں رکھے جاتے ہیں۔ پن کبھی محفوظ نہیں ہوتا۔</string>
+    <string name="history_clear">تاریخ صاف کریں</string>
+    <string name="history_clear_detail">تمام محفوظ حساب ہٹا دیتا ہے</string>
+    <string name="history_cleared">حساب کی تاریخ صاف ہو گئی</string>
+
+    <string name="intro_title">آپ کا نجی کیلکولیٹر</string>
+    <string name="intro_body">6–12 ہندسوں کا پن مقرر کریں۔ اسے کیلکولیٹر میں درج کر کے = دبائیں تو آپ کی تصاویر اور ویڈیوز کی تجوری کھل جائے گی۔\n\nپن دوبارہ حاصل نہیں کیا جا سکتا۔ ایپ ہٹانے یا اس کا ڈیٹا صاف کرنے سے تجوری بھی ختم ہو جاتی ہے۔ اہم فائلیں پہلے برآمد کر لیں۔</string>
+    <string name="intro_action">پن مقرر کریں</string>
+
+    <string name="pin_title">اپنا پن بنائیں</string>
+    <string name="pin_body">6–12 ہندسے۔ کیلکولیٹر میں درج کر کے = دبائیں تو تجوری کھل جائے گی۔ بحالی ممکن نہیں۔</string>
+    <string name="pin_hint">پن (6–12 ہندسے)</string>
+    <string name="pin_confirm">پن کی تصدیق کریں</string>
+    <string name="pin_save">پن محفوظ کریں</string>
+    <string name="pin_mismatch">6–12 ہندسوں کا ایک ہی پن دو بار درج کریں</string>
+    <string name="pin_saving">محفوظ کیا جا رہا ہے…</string>
+    <string name="pin_saved">پن محفوظ ہو گیا۔ اسے درج کر کے = دبائیں اور کھولیں۔</string>
+    <string name="pin_failed">پن محفوظ نہیں ہو سکا۔ دوبارہ کوشش کریں۔</string>
+    <string name="pin_show">پن دکھائیں</string>
+    <string name="pin_hide">پن چھپائیں</string>
+
+    <string name="lang_title">اپنی زبان منتخب کریں</string>
+    <string name="lang_subtitle">بعد میں بدلنے کے لیے کیلکولیٹر پر گلوب دبائیں</string>
+    <string name="lang_continue">جاری رکھیں</string>
+    <string name="lang_selected">منتخب</string>
+    <string name="lang_tap">استعمال کے لیے دبائیں</string>
+    <string name="lang_button">زبان</string>
+
+    <string name="ad_badge">اشتہار</string>
+</resources>

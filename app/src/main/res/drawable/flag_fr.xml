@@ -1,0 +1,6 @@
+<!-- France. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#002395" android:pathData="M0,0h20v40H0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M20,0h20v40H20z" />
+    <path android:fillColor="#ED2939" android:pathData="M40,0h20v40H40z" />
+</vector>

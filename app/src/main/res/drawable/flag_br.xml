@@ -1,0 +1,7 @@
+<!-- Brazil, shown for Portuguese: Brazil is where most Portuguese speakers are. The globe keeps its band but not its stars. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#009739" android:pathData="M0,0h60v40H0z" />
+    <path android:fillColor="#FEDD00" android:pathData="M30,4L56,20L30,36L4,20Z" />
+    <path android:fillColor="#012169" android:pathData="M22,20a8,8 0 1,0 16,0a8,8 0 1,0 -16,0" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2" android:pathData="M22.8,23.5C27,20.5 33.5,20.5 37.6,23.2" />
+</vector>

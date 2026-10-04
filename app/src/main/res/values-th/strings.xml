@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thai has one plural form. -->
+<resources>
+    <string name="app_title">เครื่องคิดเลข</string>
+    <string name="calc_caption_simple">ทุกวัน ง่ายขึ้น</string>
+    <string name="calc_caption_scientific">วิทยาศาสตร์ · องศา</string>
+    <string name="calc_check">ตรวจสอบการคำนวณของคุณ</string>
+    <string name="calc_pin_hint">ใส่ PIN แล้วแตะ =</string>
+    <string name="calc_wait">โปรดรอสักครู่ก่อนลองอีกครั้ง</string>
+    <string name="calc_scientific_show">แสดงปุ่มวิทยาศาสตร์</string>
+    <string name="calc_scientific_hide">ซ่อนปุ่มวิทยาศาสตร์</string>
+
+    <string name="history_title">ประวัติการคำนวณ</string>
+    <string name="history_empty">ยังไม่มีอะไรบันทึกไว้</string>
+    <plurals name="history_count">
+        <item quantity="other">บันทึกการคำนวณไว้ %1$d รายการในอุปกรณ์นี้</item>
+    </plurals>
+    <string name="history_hint">การคำนวณที่คุณกด = จะถูกเก็บไว้ที่นี่ ส่วน PIN จะไม่ถูกบันทึกเลย</string>
+    <string name="history_clear">ล้างประวัติ</string>
+    <string name="history_clear_detail">ลบการคำนวณที่บันทึกไว้ทั้งหมด</string>
+    <string name="history_cleared">ล้างประวัติการคำนวณแล้ว</string>
+
+    <string name="intro_title">เครื่องคิดเลขส่วนตัวของคุณ</string>
+    <string name="intro_body">ตั้ง PIN 6–12 หลัก ใส่ในเครื่องคิดเลขแล้วแตะ = เพื่อเปิดตู้นิรภัยรูปภาพและวิดีโอของคุณ\n\nไม่มีการกู้คืน PIN การถอนการติดตั้งแอปหรือล้างข้อมูลจะลบตู้นิรภัยไปด้วย โปรดส่งออกไฟล์สำคัญก่อน</string>
+    <string name="intro_action">ตั้ง PIN</string>
+
+    <string name="pin_title">สร้าง PIN ของคุณ</string>
+    <string name="pin_body">6–12 หลัก ใส่ในเครื่องคิดเลขแล้วแตะ = เพื่อเปิดตู้นิรภัย ไม่มีการกู้คืน</string>
+    <string name="pin_hint">PIN (6–12 หลัก)</string>
+    <string name="pin_confirm">ยืนยัน PIN</string>
+    <string name="pin_save">บันทึก PIN</string>
+    <string name="pin_mismatch">ใส่ PIN 6–12 หลักให้ตรงกันทั้งสองช่อง</string>
+    <string name="pin_saving">กำลังบันทึก…</string>
+    <string name="pin_saved">บันทึก PIN แล้ว ใส่ PIN แล้วแตะ = เพื่อปลดล็อก</string>
+    <string name="pin_failed">บันทึก PIN ไม่สำเร็จ ลองอีกครั้ง</string>
+    <string name="pin_show">แสดง PIN</string>
+    <string name="pin_hide">ซ่อน PIN</string>
+
+    <string name="lang_title">เลือกภาษาของคุณ</string>
+    <string name="lang_subtitle">แตะรูปลูกโลกในเครื่องคิดเลขเพื่อเปลี่ยนภายหลัง</string>
+    <string name="lang_continue">ต่อไป</string>
+    <string name="lang_selected">เลือกแล้ว</string>
+    <string name="lang_tap">แตะเพื่อใช้</string>
+    <string name="lang_button">ภาษา</string>
+
+    <string name="ad_badge">โฆษณา</string>
+</resources>

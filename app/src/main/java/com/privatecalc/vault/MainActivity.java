@@ -69,6 +69,8 @@ public class MainActivity extends Activity {
     private String location = "";
     // Which media tab the file picker was opened from, so an import lands back on it after the PIN.
     private int importTab = PHOTOS;
+    // One native ad, shared by the calculator and the vault tabs so a redraw never costs a fresh request.
+    private NativeAds ads;
 
     /** One vault file with the label the list shows for it. */
     private static final class Item {
@@ -76,12 +78,20 @@ public class MainActivity extends Activity {
         Item(File file, boolean video, String name, String meta) { this.file=file; this.video=video; this.name=name; this.meta=meta; }
     }
 
+    /** Every resource this activity reads is resolved through here, so the stored language wins over the device one. */
+    @Override protected void attachBaseContext(Context base) { super.attachBaseContext(Language.wrap(base)); }
+
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         getWindow().setStatusBarColor(background); getWindow().setNavigationBarColor(background);
         preferences = getSharedPreferences("access", MODE_PRIVATE); scientific = preferences.getBoolean("scientific",false);
-        store = new VaultStore(this); clearPreviews(); dropGrants(); calculator();
+        store = new VaultStore(this); clearPreviews(); dropGrants();
+        // Built before the first screen, because the calculator asks it for a slot.
+        ads = new NativeAds(this,panel,mint,background,Color.WHITE,soft); ads.start(worker);
+        // The first launch stops at the picker. Once a language is stored, every launch goes straight to the calculator.
+        if (!Language.chosen(this)) { languages(); return; }
+        calculator();
         if (!preferences.contains("hash")) intro();
     }
     private int dp(int value) { return Math.round(value * getResources().getDisplayMetrics().density); }
@@ -144,13 +154,13 @@ public class MainActivity extends Activity {
         FrameLayout row = new FrameLayout(this); row.addView(entry,new FrameLayout.LayoutParams(-1,-2));
         final Typeface face = entry.getTypeface();
         ImageView eye = glyph(R.drawable.ic_view,muted); eye.setBackground(surface(Color.TRANSPARENT,18)); eye.setPadding(dp(11),dp(11),dp(11),dp(11));
-        eye.setContentDescription("Show PIN"); eye.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
+        eye.setContentDescription(getString(R.string.pin_show)); eye.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
         eye.setOnClickListener(v -> {
             boolean hidden = (entry.getInputType() & InputType.TYPE_NUMBER_VARIATION_PASSWORD) != 0;
             entry.setInputType(InputType.TYPE_CLASS_NUMBER | (hidden ? 0 : InputType.TYPE_NUMBER_VARIATION_PASSWORD));
             entry.setTypeface(face); entry.setSelection(entry.getText().length());
             eye.setImageResource(hidden ? R.drawable.ic_hide : R.drawable.ic_view); eye.setColorFilter(hidden ? mint : muted);
-            eye.setContentDescription(hidden ? "Hide PIN" : "Show PIN");
+            eye.setContentDescription(getString(hidden ? R.string.pin_hide : R.string.pin_show));
         });
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(dp(44),dp(44)); params.gravity = Gravity.END | Gravity.CENTER_VERTICAL; params.setMarginEnd(dp(3));
         row.addView(eye,params); return row;
@@ -183,28 +193,85 @@ public class MainActivity extends Activity {
         root.setOnApplyWindowInsetsListener((v,insets) -> { v.setPadding(dp(20),dp(16)+insets.getSystemWindowInsetTop(),dp(20),dp(16)+insets.getSystemWindowInsetBottom()); return insets; });
         setContentView(root); root.requestApplyInsets();
     }
+    /** The language picker. The first launch lands here; later launches reach it from the globe on the calculator. */
+    private void languages() { languages(Language.index(this)); }
+    private void languages(int picked) {
+        base();
+        LinearLayout head = new LinearLayout(this); head.setGravity(Gravity.CENTER_VERTICAL);
+        head.addView(tile(R.drawable.ic_globe,mint,mintWash,48),new LinearLayout.LayoutParams(dp(48),dp(48)));
+        head.addView(stack(getString(R.string.lang_title),getString(R.string.lang_subtitle),Color.WHITE),margins(new LinearLayout.LayoutParams(0,-2,1),14,0,0,0));
+        root.addView(head,margins(new LinearLayout.LayoutParams(-1,-2),0,8,0,18));
+        LinearLayout grid = new LinearLayout(this); grid.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout row = null;
+        for (int i=0;i<Language.ALL.length;i++) {
+            if (i % 2 == 0) { row = new LinearLayout(this); grid.addView(row,margins(new LinearLayout.LayoutParams(-1,-2),0,i == 0 ? 0 : 10,0,0)); }
+            final int choice = i;
+            row.addView(languageCard(Language.ALL[i],i == picked,() -> languages(choice)),margins(new LinearLayout.LayoutParams(0,-2,1),i % 2 == 0 ? 0 : 10,0,0,0));
+        }
+        // An odd language count would leave the last card double width; the filler keeps every card the same size.
+        if (Language.ALL.length % 2 == 1) row.addView(new View(this),new LinearLayout.LayoutParams(0,dp(1),1));
+        root.addView(scrollable(grid),new LinearLayout.LayoutParams(-1,0,1));
+        String code = Language.ALL[picked].code;
+        root.addView(action(R.drawable.ic_check,getString(R.string.lang_continue),background,mint,() -> chooseLanguage(code)),margins(new LinearLayout.LayoutParams(-1,dp(52)),0,18,0,0));
+        // Under Continue rather than above it, so the ad's own button is a whole card away from the one the
+        // picker is asking for. The short shape too: the flag cards keep their room on a small screen.
+        root.addView(ads.slot(NativeAds.COMPACT),margins(new LinearLayout.LayoutParams(-1,-2),0,12,0,0));
+    }
+    /** One flag card. Tapping it only redraws the screen with this card selected; nothing is stored until Continue. */
+    private LinearLayout languageCard(Language.Option option, boolean selected, Runnable pick) {
+        LinearLayout card = new LinearLayout(this); card.setOrientation(LinearLayout.VERTICAL);
+        card.setPadding(dp(14),dp(14),dp(14),dp(14)); card.setBackground(surface(selected ? mintWash : panel,22));
+        card.setOnClickListener(v -> pick.run());
+        card.setContentDescription(option.english + ", " + getString(selected ? R.string.lang_selected : R.string.lang_tap));
+        LinearLayout top = new LinearLayout(this); top.setGravity(Gravity.CENTER_VERTICAL);
+        ImageView flag = new ImageView(this); flag.setImageResource(option.flag); flag.setScaleType(ImageView.ScaleType.FIT_XY);
+        flag.setBackground(shape(raised,5)); flag.setClipToOutline(true); flag.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        top.addView(flag,new LinearLayout.LayoutParams(dp(44),dp(30)));
+        top.addView(new View(this),new LinearLayout.LayoutParams(0,dp(1),1));
+        if (selected) top.addView(glyph(R.drawable.ic_check,mint),new LinearLayout.LayoutParams(dp(20),dp(20)));
+        card.addView(top,new LinearLayout.LayoutParams(-1,-2));
+        // The name in its own script leads; the English name under it is what someone looks for when the script is unfamiliar.
+        card.addView(single(label(option.own,17,selected ? mint : Color.WHITE,true)),margins(new LinearLayout.LayoutParams(-1,-2),0,12,0,0));
+        card.addView(single(label(option.english,12,selected ? mint : muted,false)),margins(new LinearLayout.LayoutParams(-1,-2),0,2,0,0));
+        return card;
+    }
+    /** Stores the choice and rebuilds the activity, which is what makes every screen read the new language. */
+    private void chooseLanguage(String code) { Language.save(this,code); recreate(); }
+
     private void calculator() {
         base(); LinearLayout head = new LinearLayout(this); head.setGravity(Gravity.CENTER_VERTICAL);
         LinearLayout headings = new LinearLayout(this); headings.setOrientation(LinearLayout.VERTICAL);
-        headings.addView(label("Calculator",24,Color.WHITE,true));
-        TextView caption = label(scientific ? "SCIENTIFIC · DEGREES" : "EVERYDAY, SIMPLIFIED",11,muted,false); caption.setLetterSpacing(0.08f);
-        caption.setOnLongClickListener(v -> { if (!preferences.contains("hash")) setupPin(); else toast("Enter your PIN and tap ="); return true; });
-        headings.addView(caption,margins(new LinearLayout.LayoutParams(-2,-2),0,2,0,0));
+        // "Calculatrice" and કેલ્ક્યુલેટર are wider than "Calculator" and the header now carries three buttons,
+        // so the title gives up a few points rather than truncating.
+        TextView title = single(label(getString(R.string.app_title),24,Color.WHITE,true));
+        title.setAutoSizeTextTypeUniformWithConfiguration(16,24,1,android.util.TypedValue.COMPLEX_UNIT_SP);
+        headings.addView(title,new LinearLayout.LayoutParams(-1,-2));
+        TextView caption = single(label(getString(scientific ? R.string.calc_caption_scientific : R.string.calc_caption_simple),11,muted,false)); caption.setLetterSpacing(0.08f);
+        caption.setOnLongClickListener(v -> { if (!preferences.contains("hash")) setupPin(); else toast(getString(R.string.calc_pin_hint)); return true; });
+        headings.addView(caption,margins(new LinearLayout.LayoutParams(-1,-2),0,2,0,0));
         head.addView(headings,new LinearLayout.LayoutParams(0,-2,1));
-        head.addView(round(R.drawable.ic_history,"Calculation history",muted,this::history),new LinearLayout.LayoutParams(dp(40),dp(40)));
+        head.addView(round(R.drawable.ic_globe,getString(R.string.lang_button),muted,this::languages),new LinearLayout.LayoutParams(dp(40),dp(40)));
+        head.addView(round(R.drawable.ic_history,getString(R.string.history_title),muted,this::history),margins(new LinearLayout.LayoutParams(dp(40),dp(40)),8,0,0,0));
         LinearLayout fx = action(0,"fx",scientific ? background : mint,scientific ? mint : panel,() -> {
             scientific = !scientific; preferences.edit().putBoolean("scientific",scientific).apply(); calculator();
-        }); fx.setContentDescription(scientific ? "Hide scientific keys" : "Show scientific keys");
+        }); fx.setContentDescription(getString(scientific ? R.string.calc_scientific_hide : R.string.calc_scientific_show));
         head.addView(fx,margins(new LinearLayout.LayoutParams(dp(56),dp(40)),8,0,0,0)); root.addView(head);
+        // An expression reads left to right in every language, so the display and the running result stay
+        // laid out that way even in Arabic; only the headings and the sheets follow the right-to-left layout.
         display = text(expression.isEmpty() ? "0" : expression,48,Color.WHITE); display.setGravity(Gravity.BOTTOM | Gravity.END); display.setMaxLines(2);
+        display.setLayoutDirection(View.LAYOUT_DIRECTION_LTR); display.setTextDirection(View.TEXT_DIRECTION_LTR);
         root.addView(display,new LinearLayout.LayoutParams(-1,0,1));
-        hint = label("",18,mint,false); hint.setGravity(Gravity.END); hint.setPadding(dp(4),dp(4),dp(4),dp(8)); root.addView(hint,new LinearLayout.LayoutParams(-1,-2));
+        hint = label("",18,mint,false); hint.setGravity(Gravity.END); hint.setPadding(dp(4),dp(4),dp(4),dp(8));
+        hint.setLayoutDirection(View.LAYOUT_DIRECTION_LTR); hint.setTextDirection(View.TEXT_DIRECTION_LTR); root.addView(hint,new LinearLayout.LayoutParams(-1,-2));
         if (scientific) for (String[] row : new String[][]{{"(",")","^","√","π"},{"sin","cos","tan","log","ln"}}) keypad(row,dp(52),17);
         for (String[] row : new String[][]{{"AC","⌫","%","÷"},{"7","8","9","×"},{"4","5","6","−"},{"1","2","3","+"},{"±","0",".","="}}) keypad(row,dp(70),24);
+        // The short shape, so the keypad keeps its height; the display above it is what gives way.
+        root.addView(ads.slot(NativeAds.COMPACT),margins(new LinearLayout.LayoutParams(-1,-2),0,8,0,0));
         refresh();
     }
     private void keypad(String[] keys, int height, int size) {
         LinearLayout row = new LinearLayout(this); root.addView(row,new LinearLayout.LayoutParams(-1,height));
+        row.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);   // 7 8 9 keeps its place in Arabic, the way a phone dialer does
         for (String key : keys) {
             Button b = button(key, () -> press(key)); b.setTextSize(size); b.setPadding(0,0,0,0);
             if (key.equals("=")) { b.setBackground(surface(mint,22)); b.setTextColor(background); }
@@ -227,7 +294,7 @@ public class MainActivity extends Activity {
         }
         refresh();
     }
-    private void calculate() { try { expression = Calculator.evaluate(expression); } catch (Exception e) { expression = ""; toast("Check your calculation"); } }
+    private void calculate() { try { expression = Calculator.evaluate(expression); } catch (Exception e) { expression = ""; toast(getString(R.string.calc_check)); } }
     /** Shows the running result while an expression is being typed; a bare number is left alone so PIN entry stays silent. */
     private void refresh() {
         display.setText(expression.isEmpty() ? "0" : expression); String result = "";
@@ -246,7 +313,7 @@ public class MainActivity extends Activity {
     }
     private void history() {
         ArrayList<String> entries = historyEntries();
-        LinearLayout content = sheet(R.drawable.ic_history,mint,mintWash,"Calculation history",entries.isEmpty() ? "Nothing saved yet" : count(entries.size(),"calculation") + " saved on this device");
+        LinearLayout content = sheet(R.drawable.ic_history,mint,mintWash,getString(R.string.history_title),entries.isEmpty() ? getString(R.string.history_empty) : getResources().getQuantityString(R.plurals.history_count,entries.size(),entries.size()));
         LinearLayout list = new LinearLayout(this); list.setOrientation(LinearLayout.VERTICAL);
         for (String entry : entries) {
             int split = entry.lastIndexOf('='); if (split < 1) continue;
@@ -256,13 +323,13 @@ public class MainActivity extends Activity {
             row.setOnClickListener(v -> { closeDialog(); expression = result.startsWith("-") ? "−" + result.substring(1) : result; refresh(); });
             list.addView(row,margins(new LinearLayout.LayoutParams(-1,-2),0,4,0,0));
         }
-        if (entries.isEmpty()) list.addView(label("Calculations you run with = are kept here. PIN entries are never saved.",13,soft,false),margins(new LinearLayout.LayoutParams(-1,-2),12,4,12,8));
+        if (entries.isEmpty()) list.addView(label(getString(R.string.history_hint),13,soft,false),margins(new LinearLayout.LayoutParams(-1,-2),12,4,12,8));
         ScrollView scroll = new ScrollView(this); scroll.setVerticalScrollBarEnabled(false); scroll.addView(list);
         content.addView(scroll,new LinearLayout.LayoutParams(-1,entries.size() > 5 ? dp(300) : -2));
-        if (!entries.isEmpty()) content.addView(option(R.drawable.ic_delete,"Clear history","Removes all saved calculations",true,this::clearHistory));
+        if (!entries.isEmpty()) content.addView(option(R.drawable.ic_delete,getString(R.string.history_clear),getString(R.string.history_clear_detail),true,this::clearHistory));
         vaultDialog = popup(content,Gravity.BOTTOM);
     }
-    private void clearHistory() { preferences.edit().remove("history").apply(); toast("Calculation history cleared"); }
+    private void clearHistory() { preferences.edit().remove("history").apply(); toast(getString(R.string.history_cleared)); }
     private byte[] hash(String pin, byte[] salt) throws Exception {
         PBEKeySpec spec = new PBEKeySpec(pin.toCharArray(),salt,120000,256);
         try { return SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256").generateSecret(spec).getEncoded(); } finally { spec.clearPassword(); }
@@ -270,11 +337,11 @@ public class MainActivity extends Activity {
     private void intro() {
         LinearLayout card = card();
         card.addView(tile(R.drawable.ic_shield,mint,mintWash,48),new LinearLayout.LayoutParams(dp(48),dp(48)));
-        card.addView(label("Your private calculator",20,Color.WHITE,true),margins(new LinearLayout.LayoutParams(-2,-2),0,16,0,0));
-        TextView body = label("Set a 6–12 digit PIN. Enter it in the calculator and tap = to open your photo and video vault.\n\nThere is no PIN recovery. Uninstalling the app or clearing its data removes the vault. Export important files first.",14,soft,false);
+        card.addView(label(getString(R.string.intro_title),20,Color.WHITE,true),margins(new LinearLayout.LayoutParams(-2,-2),0,16,0,0));
+        TextView body = label(getString(R.string.intro_body),14,soft,false);
         body.setLineSpacing(dp(3),1); card.addView(body,margins(new LinearLayout.LayoutParams(-1,-2),0,6,0,0));
         Dialog dialog = popup(scrollable(card),Gravity.CENTER,false);
-        card.addView(action(0,"Set PIN",background,mint,() -> { dialog.dismiss(); setupPin(); }),margins(new LinearLayout.LayoutParams(-1,dp(48)),0,20,0,0));
+        card.addView(action(0,getString(R.string.intro_action),background,mint,() -> { dialog.dismiss(); setupPin(); }),margins(new LinearLayout.LayoutParams(-1,dp(48)),0,20,0,0));
     }
     private boolean savePin(String pin) throws Exception {
         byte[] salt = new byte[32]; new SecureRandom().nextBytes(salt);
@@ -284,22 +351,22 @@ public class MainActivity extends Activity {
     private void setupPin() {
         LinearLayout card = card();
         card.addView(tile(R.drawable.ic_key,mint,mintWash,48),new LinearLayout.LayoutParams(dp(48),dp(48)));
-        card.addView(label("Create your PIN",20,Color.WHITE,true),margins(new LinearLayout.LayoutParams(-2,-2),0,16,0,0));
-        TextView body = label("6–12 digits. Enter it in the calculator and tap = to open your vault. There is no recovery.",14,soft,false); body.setLineSpacing(dp(2),1);
+        card.addView(label(getString(R.string.pin_title),20,Color.WHITE,true),margins(new LinearLayout.LayoutParams(-2,-2),0,16,0,0));
+        TextView body = label(getString(R.string.pin_body),14,soft,false); body.setLineSpacing(dp(2),1);
         card.addView(body,margins(new LinearLayout.LayoutParams(-1,-2),0,6,0,0));
-        EditText first = pinField("PIN (6–12 digits)"), second = pinField("Confirm PIN");
+        EditText first = pinField(getString(R.string.pin_hint)), second = pinField(getString(R.string.pin_confirm));
         card.addView(pinRow(first),margins(new LinearLayout.LayoutParams(-1,-2),0,16,0,0)); card.addView(pinRow(second),margins(new LinearLayout.LayoutParams(-1,-2),0,10,0,0));
         TextView error = label("",13,danger,false); card.addView(error,margins(new LinearLayout.LayoutParams(-1,-2),0,8,0,0));
-        LinearLayout save = action(0,"Save PIN",background,mint,null); card.addView(save,margins(new LinearLayout.LayoutParams(-1,dp(48)),0,16,0,0));
+        LinearLayout save = action(0,getString(R.string.pin_save),background,mint,null); card.addView(save,margins(new LinearLayout.LayoutParams(-1,dp(48)),0,16,0,0));
         Dialog dialog = popup(scrollable(card),Gravity.CENTER,false);
         save.setOnClickListener(v -> {
             String pin = first.getText().toString();
-            if (!pin.matches("[0-9]{6,12}") || !pin.equals(second.getText().toString())) { error.setText("Use matching 6–12 digit PINs"); return; }
-            save.setEnabled(false); error.setText("Saving…");
+            if (!pin.matches("[0-9]{6,12}") || !pin.equals(second.getText().toString())) { error.setText(getString(R.string.pin_mismatch)); return; }
+            save.setEnabled(false); error.setText(getString(R.string.pin_saving));
             worker.execute(() -> { try {
                 if (!savePin(pin)) throw new IOException();
-                runOnUiThread(() -> { dialog.dismiss(); toast("PIN saved. Enter it and tap = to unlock."); });
-            } catch (Exception e) { runOnUiThread(() -> { save.setEnabled(true); error.setText("Could not save PIN. Try again."); }); } });
+                runOnUiThread(() -> { dialog.dismiss(); toast(getString(R.string.pin_saved)); });
+            } catch (Exception e) { runOnUiThread(() -> { save.setEnabled(true); error.setText(getString(R.string.pin_failed)); }); } });
         });
     }
     private void changePin() {
@@ -337,7 +404,7 @@ public class MainActivity extends Activity {
         });
     }
     private void verifyPin(String pin) {
-        if (System.currentTimeMillis() < preferences.getLong("retry",0)) { expression=""; refresh(); toast("Please wait before trying again"); return; }
+        if (System.currentTimeMillis() < preferences.getLong("retry",0)) { expression=""; refresh(); toast(getString(R.string.calc_wait)); return; }
         busy = true; int token = session;
         worker.execute(() -> {
             boolean matches = false;
@@ -456,6 +523,8 @@ public class MainActivity extends Activity {
                 ? "An import is copied here first, then the original is taken out of your gallery — Android may ask you first. Cloud backups and your gallery's trash are not touched; clear those yourself."
                 : "Imports are copies. After checking them here, remove originals from your gallery and its trash if you want them hidden there.",13,soft,false); tip.setLineSpacing(dp(2),1);
             note.addView(glyph(R.drawable.ic_info,soft),margins(new LinearLayout.LayoutParams(dp(18),dp(18)),0,1,0,0)); note.addView(tip,margins(new LinearLayout.LayoutParams(0,-2,1),12,0,0,0)); list.addView(note);
+            // Kept out of selection mode, where every tap is meant to pick an item.
+            list.addView(ads.slot(NativeAds.MEDIA),margins(new LinearLayout.LayoutParams(-1,-2),0,8,0,0));
         }
         if (items.isEmpty()) {
             LinearLayout empty = new LinearLayout(this); empty.setOrientation(LinearLayout.VERTICAL); empty.setGravity(Gravity.CENTER_HORIZONTAL); empty.setPadding(dp(24),dp(48),dp(24),dp(24));
@@ -608,6 +677,7 @@ public class MainActivity extends Activity {
         note.addView(glyph(R.drawable.ic_info,soft),margins(new LinearLayout.LayoutParams(dp(18),dp(18)),0,1,0,0));
         note.addView(tip,margins(new LinearLayout.LayoutParams(0,-2,1),12,0,0,0)); body.addView(note);
         body.addView(callingOption(),margins(new LinearLayout.LayoutParams(-1,-2),0,8,0,0));
+        body.addView(ads.slot(NativeAds.MEDIA),margins(new LinearLayout.LayoutParams(-1,-2),0,8,0,0));
         if (list.isEmpty()) {
             LinearLayout empty = new LinearLayout(this); empty.setOrientation(LinearLayout.VERTICAL); empty.setGravity(Gravity.CENTER_HORIZONTAL); empty.setPadding(dp(24),dp(40),dp(24),dp(24));
             empty.addView(tile(R.drawable.ic_contact,lilac,lilacWash,64),new LinearLayout.LayoutParams(dp(64),dp(64)));
@@ -818,6 +888,7 @@ public class MainActivity extends Activity {
         ScrollView scroll = new ScrollView(this); scroll.setVerticalScrollBarEnabled(false);
         LinearLayout body = new LinearLayout(this); body.setOrientation(LinearLayout.VERTICAL); scroll.addView(body);
         page.addView(scroll,margins(new LinearLayout.LayoutParams(-1,0,1),0,12,0,0));
+        body.addView(ads.slot(NativeAds.MEDIA),margins(new LinearLayout.LayoutParams(-1,-2),0,0,0,0));
         if (list.isEmpty()) {
             LinearLayout empty = new LinearLayout(this); empty.setOrientation(LinearLayout.VERTICAL); empty.setGravity(Gravity.CENTER_HORIZONTAL); empty.setPadding(dp(24),dp(40),dp(24),dp(24));
             empty.addView(tile(R.drawable.ic_note,lilac,lilacWash,64),new LinearLayout.LayoutParams(dp(64),dp(64)));
@@ -1323,6 +1394,6 @@ public class MainActivity extends Activity {
         if (unlocked && tab == BROWSER && browser != null && browser.canGoBack()) { browser.goBack(); return; }
         if (unlocked) lock(); else super.onBackPressed();
     }
-    @Override protected void onDestroy() { stopVideo(); clearBrowser(); worker.shutdown(); thumbnailPool.shutdownNow(); super.onDestroy(); }
+    @Override protected void onDestroy() { stopVideo(); clearBrowser(); ads.destroy(); worker.shutdown(); thumbnailPool.shutdownNow(); super.onDestroy(); }
     private void toast(String message) { Toast.makeText(this,message,Toast.LENGTH_LONG).show(); }
 }

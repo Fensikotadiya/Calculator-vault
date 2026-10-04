@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Calculatrice</string>
+    <string name="calc_caption_simple">LE QUOTIDIEN, EN SIMPLE</string>
+    <string name="calc_caption_scientific">SCIENTIFIQUE · DEGRÉS</string>
+    <string name="calc_check">Vérifiez votre calcul</string>
+    <string name="calc_pin_hint">Saisissez votre code et appuyez sur =</string>
+    <string name="calc_wait">Patientez avant de réessayer</string>
+    <string name="calc_scientific_show">Afficher les touches scientifiques</string>
+    <string name="calc_scientific_hide">Masquer les touches scientifiques</string>
+
+    <string name="history_title">Historique des calculs</string>
+    <string name="history_empty">Rien d\'enregistré pour l\'instant</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d calcul enregistré sur cet appareil</item>
+        <item quantity="many">%1$d calculs enregistrés sur cet appareil</item>
+        <item quantity="other">%1$d calculs enregistrés sur cet appareil</item>
+    </plurals>
+    <string name="history_hint">Les calculs lancés avec = sont conservés ici. Les codes ne sont jamais enregistrés.</string>
+    <string name="history_clear">Effacer l\'historique</string>
+    <string name="history_clear_detail">Supprime tous les calculs enregistrés</string>
+    <string name="history_cleared">Historique des calculs effacé</string>
+
+    <string name="intro_title">Votre calculatrice privée</string>
+    <string name="intro_body">Choisissez un code de 6 à 12 chiffres. Saisissez-le dans la calculatrice et appuyez sur = pour ouvrir votre coffre photos et vidéos.\n\nLe code ne peut pas être récupéré. Désinstaller l\'application ou effacer ses données supprime le coffre. Exportez d\'abord les fichiers importants.</string>
+    <string name="intro_action">Choisir un code</string>
+
+    <string name="pin_title">Créez votre code</string>
+    <string name="pin_body">De 6 à 12 chiffres. Saisissez-le dans la calculatrice et appuyez sur = pour ouvrir votre coffre. Il ne peut pas être récupéré.</string>
+    <string name="pin_hint">Code (6 à 12 chiffres)</string>
+    <string name="pin_confirm">Confirmez le code</string>
+    <string name="pin_save">Enregistrer le code</string>
+    <string name="pin_mismatch">Saisissez deux codes identiques de 6 à 12 chiffres</string>
+    <string name="pin_saving">Enregistrement…</string>
+    <string name="pin_saved">Code enregistré. Saisissez-le et appuyez sur = pour ouvrir.</string>
+    <string name="pin_failed">Impossible d\'enregistrer le code. Réessayez.</string>
+    <string name="pin_show">Afficher le code</string>
+    <string name="pin_hide">Masquer le code</string>
+
+    <string name="lang_title">Choisissez votre langue</string>
+    <string name="lang_subtitle">Appuyez sur le globe de la calculatrice pour la changer plus tard</string>
+    <string name="lang_continue">Continuer</string>
+    <string name="lang_selected">Sélectionnée</string>
+    <string name="lang_tap">Appuyer pour utiliser</string>
+    <string name="lang_button">Langue</string>
+
+    <!-- AdMob requires the ad to be marked as one. Short enough to sit beside the headline. -->
+    <string name="ad_badge">Annonce</string>
+</resources>

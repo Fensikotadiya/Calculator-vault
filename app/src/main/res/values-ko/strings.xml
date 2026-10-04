@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Korean has one plural form. -->
+<resources>
+    <string name="app_title">계산기</string>
+    <string name="calc_caption_simple">일상을, 더 간단하게</string>
+    <string name="calc_caption_scientific">공학용 · 도</string>
+    <string name="calc_check">계산을 확인하세요</string>
+    <string name="calc_pin_hint">PIN을 입력하고 =을 누르세요</string>
+    <string name="calc_wait">잠시 후에 다시 시도하세요</string>
+    <string name="calc_scientific_show">공학용 키 표시</string>
+    <string name="calc_scientific_hide">공학용 키 숨기기</string>
+
+    <string name="history_title">계산 기록</string>
+    <string name="history_empty">아직 저장된 것이 없습니다</string>
+    <plurals name="history_count">
+        <item quantity="other">이 기기에 계산 %1$d개가 저장됨</item>
+    </plurals>
+    <string name="history_hint">=으로 실행한 계산이 여기에 남습니다. PIN 입력은 저장되지 않습니다.</string>
+    <string name="history_clear">기록 지우기</string>
+    <string name="history_clear_detail">저장된 계산을 모두 삭제합니다</string>
+    <string name="history_cleared">계산 기록을 지웠습니다</string>
+
+    <string name="intro_title">나만의 계산기</string>
+    <string name="intro_body">6~12자리 PIN을 설정하세요. 계산기에 입력하고 =을 누르면 사진과 동영상 보관함이 열립니다.\n\nPIN은 복구할 수 없습니다. 앱을 삭제하거나 데이터를 지우면 보관함도 사라집니다. 중요한 파일은 먼저 내보내세요.</string>
+    <string name="intro_action">PIN 설정</string>
+
+    <string name="pin_title">PIN 만들기</string>
+    <string name="pin_body">6~12자리. 계산기에 입력하고 =을 누르면 보관함이 열립니다. 복구는 없습니다.</string>
+    <string name="pin_hint">PIN(6~12자리)</string>
+    <string name="pin_confirm">PIN 확인</string>
+    <string name="pin_save">PIN 저장</string>
+    <string name="pin_mismatch">6~12자리의 같은 PIN을 입력하세요</string>
+    <string name="pin_saving">저장 중…</string>
+    <string name="pin_saved">PIN을 저장했습니다. 입력하고 =을 누르면 잠금이 풀립니다.</string>
+    <string name="pin_failed">PIN을 저장하지 못했습니다. 다시 시도하세요.</string>
+    <string name="pin_show">PIN 표시</string>
+    <string name="pin_hide">PIN 숨기기</string>
+
+    <string name="lang_title">언어 선택</string>
+    <string name="lang_subtitle">나중에 바꾸려면 계산기의 지구본을 누르세요</string>
+    <string name="lang_continue">계속</string>
+    <string name="lang_selected">선택됨</string>
+    <string name="lang_tap">눌러서 사용</string>
+    <string name="lang_button">언어</string>
+
+    <string name="ad_badge">광고</string>
+</resources>
