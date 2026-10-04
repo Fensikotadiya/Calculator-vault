@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Rechner</string>
+    <string name="calc_caption_simple">ALLTAG, VEREINFACHT</string>
+    <string name="calc_caption_scientific">WISSENSCHAFTLICH · GRAD</string>
+    <string name="calc_check">Prüfen Sie Ihre Rechnung</string>
+    <string name="calc_pin_hint">PIN eingeben und = tippen</string>
+    <string name="calc_wait">Bitte warten Sie, bevor Sie es erneut versuchen</string>
+    <string name="calc_scientific_show">Wissenschaftliche Tasten anzeigen</string>
+    <string name="calc_scientific_hide">Wissenschaftliche Tasten ausblenden</string>
+
+    <string name="history_title">Rechenverlauf</string>
+    <string name="history_empty">Noch nichts gespeichert</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d Rechnung auf diesem Gerät gespeichert</item>
+        <item quantity="other">%1$d Rechnungen auf diesem Gerät gespeichert</item>
+    </plurals>
+    <string name="history_hint">Rechnungen, die Sie mit = ausführen, werden hier gespeichert. PIN-Eingaben werden nie gespeichert.</string>
+    <string name="history_clear">Verlauf löschen</string>
+    <string name="history_clear_detail">Entfernt alle gespeicherten Rechnungen</string>
+    <string name="history_cleared">Rechenverlauf gelöscht</string>
+
+    <string name="intro_title">Ihr privater Rechner</string>
+    <string name="intro_body">Legen Sie eine PIN mit 6–12 Ziffern fest. Geben Sie sie im Rechner ein und tippen Sie auf =, um Ihren Foto- und Video-Tresor zu öffnen.\n\nEs gibt keine PIN-Wiederherstellung. Die App zu deinstallieren oder ihre Daten zu löschen entfernt den Tresor. Exportieren Sie wichtige Dateien vorher.</string>
+    <string name="intro_action">PIN festlegen</string>
+
+    <string name="pin_title">PIN erstellen</string>
+    <string name="pin_body">6–12 Ziffern. Geben Sie sie im Rechner ein und tippen Sie auf =, um Ihren Tresor zu öffnen. Es gibt keine Wiederherstellung.</string>
+    <string name="pin_hint">PIN (6–12 Ziffern)</string>
+    <string name="pin_confirm">PIN bestätigen</string>
+    <string name="pin_save">PIN speichern</string>
+    <string name="pin_mismatch">Verwenden Sie zwei gleiche PINs mit 6–12 Ziffern</string>
+    <string name="pin_saving">Wird gespeichert…</string>
+    <string name="pin_saved">PIN gespeichert. Eingeben und = tippen zum Entsperren.</string>
+    <string name="pin_failed">PIN konnte nicht gespeichert werden. Versuchen Sie es erneut.</string>
+    <string name="pin_show">PIN anzeigen</string>
+    <string name="pin_hide">PIN ausblenden</string>
+
+    <string name="lang_title">Sprache wählen</string>
+    <string name="lang_subtitle">Tippen Sie auf den Globus im Rechner, um sie später zu ändern</string>
+    <string name="lang_continue">Weiter</string>
+    <string name="lang_selected">Ausgewählt</string>
+    <string name="lang_tap">Zum Verwenden tippen</string>
+    <string name="lang_button">Sprache</string>
+
+    <string name="ad_badge">Anzeige</string>
+</resources>

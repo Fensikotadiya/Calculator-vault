@@ -1,0 +1,15 @@
+<!-- Malaysia. All fourteen stripes are kept; they still read as stripes at picker size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#FFFFFF" android:pathData="M0,0h60v40H0z" />
+    <path android:fillColor="#CC0001" android:pathData="M0,0h60v2.86H0z" />
+    <path android:fillColor="#CC0001" android:pathData="M0,5.71h60v2.86H0z" />
+    <path android:fillColor="#CC0001" android:pathData="M0,11.43h60v2.86H0z" />
+    <path android:fillColor="#CC0001" android:pathData="M0,17.14h60v2.86H0z" />
+    <path android:fillColor="#CC0001" android:pathData="M0,22.86h60v2.86H0z" />
+    <path android:fillColor="#CC0001" android:pathData="M0,28.57h60v2.86H0z" />
+    <path android:fillColor="#CC0001" android:pathData="M0,34.29h60v2.86H0z" />
+    <path android:fillColor="#010066" android:pathData="M0,0h34v22.86H0z" />
+    <path android:fillColor="#FFCC00" android:pathData="M6,11a6,6 0 1,0 12,0a6,6 0 1,0 -12,0" />
+    <path android:fillColor="#010066" android:pathData="M9.5,10a5,5 0 1,0 10,0a5,5 0 1,0 -10,0" />
+    <path android:fillColor="#FFCC00" android:pathData="M22,8L22.67,10.07L24.85,10.07L23.09,11.35L23.76,13.43L22,12.15L20.24,13.43L20.91,11.35L19.15,10.07L21.33,10.07Z" />
+</vector>

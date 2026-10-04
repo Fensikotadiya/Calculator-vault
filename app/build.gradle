@@ -5,6 +5,14 @@ def keystoreFile = rootProject.file('keystore.properties')
 def keystore = new Properties()
 if (keystoreFile.exists()) keystoreFile.withInputStream { keystore.load(it) }
 
+// AdMob identifiers. Replace the two `live` values with your own from the AdMob console before publishing;
+// they are the sample units until you do, so a fresh clone builds and shows ads without an account.
+// Debug builds always use Google's sample units: asking for live ads from a test device is what gets an AdMob account suspended.
+def testAppId = 'ca-app-pub-3940256099942544~3347511713'
+def testNativeUnit = 'ca-app-pub-3940256099942544/2247696110'
+def liveAppId = testAppId          // <- your ca-app-pub-0000000000000000~0000000000
+def liveNativeUnit = testNativeUnit // <- your ca-app-pub-0000000000000000/0000000000
+
 android {
     namespace 'com.privatecalc.vault'
     compileSdk 36
@@ -24,10 +32,27 @@ android {
         }
     }
     buildTypes {
-        release { if (keystoreFile.exists()) signingConfig signingConfigs.release }
+        release {
+            if (keystoreFile.exists()) signingConfig signingConfigs.release
+            manifestPlaceholders = [admobAppId: liveAppId]
+            buildConfigField 'String', 'NATIVE_AD_UNIT', "\"${liveNativeUnit}\""
+        }
         // A debug build installs under its own application id, so testing it never touches the vault of an installed store build.
-        debug { applicationIdSuffix '.debug' }
+        debug {
+            applicationIdSuffix '.debug'
+            manifestPlaceholders = [admobAppId: testAppId]
+            buildConfigField 'String', 'NATIVE_AD_UNIT', "\"${testNativeUnit}\""
+        }
     }
+    // Play strips a bundle down to the languages the device already speaks. That would quietly break the
+    // picker: a phone set to English would download only the English strings, and choosing Hindi would
+    // change nothing. Keeping every language in the base module is what makes the picker work on Play.
+    // The translations are a few kilobytes of short strings, so the download barely notices.
+    bundle { language { enableSplit = false } }
+    buildFeatures { buildConfig true }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+dependencies {
+    implementation 'com.google.android.gms:play-services-ads:25.5.0'
 }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Arabic needs the full set of plural categories, so history_count carries all six. -->
+<resources>
+    <string name="app_title">الآلة الحاسبة</string>
+    <string name="calc_caption_simple">حسابات يومية ببساطة</string>
+    <string name="calc_caption_scientific">علمية · بالدرجات</string>
+    <string name="calc_check">تحقق من عمليتك الحسابية</string>
+    <string name="calc_pin_hint">أدخل رمز PIN واضغط =</string>
+    <string name="calc_wait">انتظر قليلاً قبل المحاولة من جديد</string>
+    <string name="calc_scientific_show">إظهار المفاتيح العلمية</string>
+    <string name="calc_scientific_hide">إخفاء المفاتيح العلمية</string>
+
+    <string name="history_title">سجل العمليات الحسابية</string>
+    <string name="history_empty">لا شيء محفوظ بعد</string>
+    <plurals name="history_count">
+        <item quantity="zero">لا عمليات محفوظة على هذا الجهاز</item>
+        <item quantity="one">عملية حسابية واحدة محفوظة على هذا الجهاز</item>
+        <item quantity="two">عمليتان حسابيتان محفوظتان على هذا الجهاز</item>
+        <item quantity="few">%1$d عمليات حسابية محفوظة على هذا الجهاز</item>
+        <item quantity="many">%1$d عملية حسابية محفوظة على هذا الجهاز</item>
+        <item quantity="other">%1$d عملية حسابية محفوظة على هذا الجهاز</item>
+    </plurals>
+    <string name="history_hint">العمليات التي تنفذها بالضغط على = تُحفظ هنا. ولا يُحفظ رمز PIN أبداً.</string>
+    <string name="history_clear">محو السجل</string>
+    <string name="history_clear_detail">يحذف جميع العمليات المحفوظة</string>
+    <string name="history_cleared">تم محو سجل العمليات الحسابية</string>
+
+    <string name="intro_title">حاسبتك الخاصة</string>
+    <string name="intro_body">اضبط رمز PIN من 6 إلى 12 رقماً. أدخله في الآلة الحاسبة واضغط = لفتح خزنة صورك ومقاطعك.\n\nلا يمكن استعادة الرمز. وإلغاء تثبيت التطبيق أو محو بياناته يحذف الخزنة. صدّر الملفات المهمة أولاً.</string>
+    <string name="intro_action">ضبط رمز PIN</string>
+
+    <string name="pin_title">أنشئ رمز PIN</string>
+    <string name="pin_body">من 6 إلى 12 رقماً. أدخله في الآلة الحاسبة واضغط = لفتح خزنتك. ولا يمكن استعادته.</string>
+    <string name="pin_hint">رمز PIN (من 6 إلى 12 رقماً)</string>
+    <string name="pin_confirm">تأكيد رمز PIN</string>
+    <string name="pin_save">حفظ رمز PIN</string>
+    <string name="pin_mismatch">أدخل رمزين متطابقين من 6 إلى 12 رقماً</string>
+    <string name="pin_saving">جارٍ الحفظ…</string>
+    <string name="pin_saved">تم حفظ الرمز. أدخله واضغط = للفتح.</string>
+    <string name="pin_failed">تعذّر حفظ الرمز. حاول من جديد.</string>
+    <string name="pin_show">إظهار رمز PIN</string>
+    <string name="pin_hide">إخفاء رمز PIN</string>
+
+    <string name="lang_title">اختر لغتك</string>
+    <string name="lang_subtitle">اضغط رمز الكرة الأرضية في الحاسبة لتغييرها لاحقاً</string>
+    <string name="lang_continue">متابعة</string>
+    <string name="lang_selected">مختارة</string>
+    <string name="lang_tap">اضغط للاستخدام</string>
+    <string name="lang_button">اللغة</string>
+
+    <!-- AdMob requires the ad to be marked as one. Short enough to sit beside the headline. -->
+    <string name="ad_badge">إعلان</string>
+</resources>

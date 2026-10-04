@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simplified Chinese. Chinese has one plural form. -->
+<resources>
+    <string name="app_title">计算器</string>
+    <string name="calc_caption_simple">日常，更简单</string>
+    <string name="calc_caption_scientific">科学计算 · 角度</string>
+    <string name="calc_check">请检查你的计算</string>
+    <string name="calc_pin_hint">输入 PIN 码并点按 =</string>
+    <string name="calc_wait">请稍候再试</string>
+    <string name="calc_scientific_show">显示科学键</string>
+    <string name="calc_scientific_hide">隐藏科学键</string>
+
+    <string name="history_title">计算历史</string>
+    <string name="history_empty">尚未保存任何内容</string>
+    <plurals name="history_count">
+        <item quantity="other">本设备已保存 %1$d 条计算</item>
+    </plurals>
+    <string name="history_hint">用 = 运行的计算会保留在这里。PIN 码从不保存。</string>
+    <string name="history_clear">清除历史</string>
+    <string name="history_clear_detail">删除所有已保存的计算</string>
+    <string name="history_cleared">计算历史已清除</string>
+
+    <string name="intro_title">你的私人计算器</string>
+    <string name="intro_body">设置一个 6–12 位的 PIN 码。在计算器中输入并点按 =，即可打开你的照片和视频保险库。\n\nPIN 码无法找回。卸载应用或清除其数据会一并删除保险库。请先导出重要文件。</string>
+    <string name="intro_action">设置 PIN 码</string>
+
+    <string name="pin_title">创建 PIN 码</string>
+    <string name="pin_body">6–12 位。在计算器中输入并点按 = 即可打开保险库。无法找回。</string>
+    <string name="pin_hint">PIN 码（6–12 位）</string>
+    <string name="pin_confirm">确认 PIN 码</string>
+    <string name="pin_save">保存 PIN 码</string>
+    <string name="pin_mismatch">请输入两个相同的 6–12 位 PIN 码</string>
+    <string name="pin_saving">正在保存…</string>
+    <string name="pin_saved">PIN 码已保存。输入后点按 = 即可解锁。</string>
+    <string name="pin_failed">无法保存 PIN 码，请重试。</string>
+    <string name="pin_show">显示 PIN 码</string>
+    <string name="pin_hide">隐藏 PIN 码</string>
+
+    <string name="lang_title">选择你的语言</string>
+    <string name="lang_subtitle">点按计算器上的地球图标即可稍后更改</string>
+    <string name="lang_continue">继续</string>
+    <string name="lang_selected">已选择</string>
+    <string name="lang_tap">点按以使用</string>
+    <string name="lang_button">语言</string>
+
+    <string name="ad_badge">广告</string>
+</resources>

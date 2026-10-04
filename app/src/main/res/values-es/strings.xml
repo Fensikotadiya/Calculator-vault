@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Calculadora</string>
+    <string name="calc_caption_simple">LO DE CADA DÍA, SIMPLE</string>
+    <string name="calc_caption_scientific">CIENTÍFICA · GRADOS</string>
+    <string name="calc_check">Revisa tu cálculo</string>
+    <string name="calc_pin_hint">Escribe tu PIN y pulsa =</string>
+    <string name="calc_wait">Espera antes de volver a intentarlo</string>
+    <string name="calc_scientific_show">Mostrar teclas científicas</string>
+    <string name="calc_scientific_hide">Ocultar teclas científicas</string>
+
+    <string name="history_title">Historial de cálculos</string>
+    <string name="history_empty">Aún no hay nada guardado</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d cálculo guardado en este dispositivo</item>
+        <item quantity="many">%1$d cálculos guardados en este dispositivo</item>
+        <item quantity="other">%1$d cálculos guardados en este dispositivo</item>
+    </plurals>
+    <string name="history_hint">Los cálculos que haces con = se guardan aquí. Los PIN nunca se guardan.</string>
+    <string name="history_clear">Borrar historial</string>
+    <string name="history_clear_detail">Elimina todos los cálculos guardados</string>
+    <string name="history_cleared">Historial de cálculos borrado</string>
+
+    <string name="intro_title">Tu calculadora privada</string>
+    <string name="intro_body">Define un PIN de 6 a 12 dígitos. Escríbelo en la calculadora y pulsa = para abrir tu caja fuerte de fotos y vídeos.\n\nEl PIN no se puede recuperar. Si desinstalas la app o borras sus datos, la caja fuerte desaparece. Exporta primero los archivos importantes.</string>
+    <string name="intro_action">Definir PIN</string>
+
+    <string name="pin_title">Crea tu PIN</string>
+    <string name="pin_body">De 6 a 12 dígitos. Escríbelo en la calculadora y pulsa = para abrir tu caja fuerte. No se puede recuperar.</string>
+    <string name="pin_hint">PIN (6 a 12 dígitos)</string>
+    <string name="pin_confirm">Confirma el PIN</string>
+    <string name="pin_save">Guardar PIN</string>
+    <string name="pin_mismatch">Usa dos PIN iguales de 6 a 12 dígitos</string>
+    <string name="pin_saving">Guardando…</string>
+    <string name="pin_saved">PIN guardado. Escríbelo y pulsa = para abrir.</string>
+    <string name="pin_failed">No se pudo guardar el PIN. Inténtalo de nuevo.</string>
+    <string name="pin_show">Mostrar PIN</string>
+    <string name="pin_hide">Ocultar PIN</string>
+
+    <string name="lang_title">Elige tu idioma</string>
+    <string name="lang_subtitle">Toca el globo en la calculadora para cambiarlo después</string>
+    <string name="lang_continue">Continuar</string>
+    <string name="lang_selected">Seleccionado</string>
+    <string name="lang_tap">Toca para usarlo</string>
+    <string name="lang_button">Idioma</string>
+
+    <!-- AdMob requires the ad to be marked as one. Short enough to sit beside the headline. -->
+    <string name="ad_badge">Anuncio</string>
+</resources>

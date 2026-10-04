@@ -1,0 +1,8 @@
+<!-- India, shown for both Hindi and Gujarati. The chakra is an outline with four spokes; more would blur at picker size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#FF9933" android:pathData="M0,0h60v13.33H0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M0,13.33h60v13.34H0z" />
+    <path android:fillColor="#138808" android:pathData="M0,26.67h60v13.33H0z" />
+    <path android:strokeColor="#000088" android:strokeWidth="1.1" android:pathData="M24.5,20a5.5,5.5 0 1,0 11,0a5.5,5.5 0 1,0 -11,0" />
+    <path android:strokeColor="#000088" android:strokeWidth="0.8" android:pathData="M30,14.5V25.5 M24.5,20H35.5 M26.1,16.1L33.9,23.9 M33.9,16.1L26.1,23.9" />
+</vector>

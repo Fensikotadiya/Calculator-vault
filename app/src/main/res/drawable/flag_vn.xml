@@ -1,0 +1,5 @@
+<!-- Vietnam. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#DA251D" android:pathData="M0,0h60v40H0z" />
+    <path android:fillColor="#FFFF00" android:pathData="M30,9L32.47,16.6L40.46,16.6L34,21.3L36.47,28.9L30,24.2L23.53,28.9L26,21.3L19.54,16.6L27.53,16.6Z" />
+</vector>

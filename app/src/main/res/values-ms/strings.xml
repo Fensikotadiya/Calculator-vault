@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Malay has one plural form. -->
+<resources>
+    <string name="app_title">Kalkulator</string>
+    <string name="calc_caption_simple">HARIAN, LEBIH MUDAH</string>
+    <string name="calc_caption_scientific">SAINTIFIK · DARJAH</string>
+    <string name="calc_check">Semak pengiraan anda</string>
+    <string name="calc_pin_hint">Masukkan PIN anda dan ketik =</string>
+    <string name="calc_wait">Tunggu sebentar sebelum mencuba lagi</string>
+    <string name="calc_scientific_show">Tunjukkan kekunci saintifik</string>
+    <string name="calc_scientific_hide">Sembunyikan kekunci saintifik</string>
+
+    <string name="history_title">Sejarah pengiraan</string>
+    <string name="history_empty">Belum ada yang disimpan</string>
+    <plurals name="history_count">
+        <item quantity="other">%1$d pengiraan disimpan pada peranti ini</item>
+    </plurals>
+    <string name="history_hint">Pengiraan yang anda jalankan dengan = disimpan di sini. PIN tidak pernah disimpan.</string>
+    <string name="history_clear">Kosongkan sejarah</string>
+    <string name="history_clear_detail">Membuang semua pengiraan yang disimpan</string>
+    <string name="history_cleared">Sejarah pengiraan dikosongkan</string>
+
+    <string name="intro_title">Kalkulator peribadi anda</string>
+    <string name="intro_body">Tetapkan PIN 6–12 digit. Masukkannya dalam kalkulator dan ketik = untuk membuka peti foto dan video anda.\n\nTiada pemulihan PIN. Menyahpasang apl atau memadam datanya akan membuang peti itu. Eksport fail penting dahulu.</string>
+    <string name="intro_action">Tetapkan PIN</string>
+
+    <string name="pin_title">Cipta PIN anda</string>
+    <string name="pin_body">6–12 digit. Masukkannya dalam kalkulator dan ketik = untuk membuka peti anda. Tiada pemulihan.</string>
+    <string name="pin_hint">PIN (6–12 digit)</string>
+    <string name="pin_confirm">Sahkan PIN</string>
+    <string name="pin_save">Simpan PIN</string>
+    <string name="pin_mismatch">Gunakan dua PIN sama yang mempunyai 6–12 digit</string>
+    <string name="pin_saving">Menyimpan…</string>
+    <string name="pin_saved">PIN disimpan. Masukkannya dan ketik = untuk membuka kunci.</string>
+    <string name="pin_failed">Tidak dapat menyimpan PIN. Cuba lagi.</string>
+    <string name="pin_show">Tunjukkan PIN</string>
+    <string name="pin_hide">Sembunyikan PIN</string>
+
+    <string name="lang_title">Pilih bahasa anda</string>
+    <string name="lang_subtitle">Ketik glob pada kalkulator untuk menukarnya kemudian</string>
+    <string name="lang_continue">Teruskan</string>
+    <string name="lang_selected">Dipilih</string>
+    <string name="lang_tap">Ketik untuk guna</string>
+    <string name="lang_button">Bahasa</string>
+
+    <string name="ad_badge">Iklan</string>
+</resources>

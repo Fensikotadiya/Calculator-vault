@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">कॅल्क्युलेटर</string>
+    <string name="calc_caption_simple">रोजचं, आणखी सोपं</string>
+    <string name="calc_caption_scientific">वैज्ञानिक · अंश</string>
+    <string name="calc_check">तुमची गणना तपासा</string>
+    <string name="calc_pin_hint">तुमचा पिन टाका आणि = दाबा</string>
+    <string name="calc_wait">पुन्हा प्रयत्न करण्याआधी थोडं थांबा</string>
+    <string name="calc_scientific_show">वैज्ञानिक कळा दाखवा</string>
+    <string name="calc_scientific_hide">वैज्ञानिक कळा लपवा</string>
+
+    <string name="history_title">गणनेचा इतिहास</string>
+    <string name="history_empty">अजून काहीही जतन केलेलं नाही</string>
+    <plurals name="history_count">
+        <item quantity="one">या डिव्हाइसवर %1$d गणना जतन केली</item>
+        <item quantity="other">या डिव्हाइसवर %1$d गणना जतन केल्या</item>
+    </plurals>
+    <string name="history_hint">= ने केलेल्या गणना इथे ठेवल्या जातात. पिन कधीही जतन होत नाही.</string>
+    <string name="history_clear">इतिहास पुसा</string>
+    <string name="history_clear_detail">जतन केलेल्या सर्व गणना काढून टाकते</string>
+    <string name="history_cleared">गणनेचा इतिहास पुसला</string>
+
+    <string name="intro_title">तुमचा खाजगी कॅल्क्युलेटर</string>
+    <string name="intro_body">६–१२ अंकी पिन ठरवा. तो कॅल्क्युलेटरमध्ये टाकून = दाबा, म्हणजे तुमची फोटो आणि व्हिडिओची तिजोरी उघडेल.\n\nपिन परत मिळवता येत नाही. ॲप काढून टाकलं किंवा त्याचा डेटा पुसला तर तिजोरीही जाते. महत्त्वाच्या फायली आधी निर्यात करा.</string>
+    <string name="intro_action">पिन ठरवा</string>
+
+    <string name="pin_title">तुमचा पिन तयार करा</string>
+    <string name="pin_body">६–१२ अंक. कॅल्क्युलेटरमध्ये टाकून = दाबा, म्हणजे तिजोरी उघडेल. परत मिळवण्याचा मार्ग नाही.</string>
+    <string name="pin_hint">पिन (६–१२ अंक)</string>
+    <string name="pin_confirm">पिनची खात्री करा</string>
+    <string name="pin_save">पिन जतन करा</string>
+    <string name="pin_mismatch">६–१२ अंकांचे दोन सारखे पिन टाका</string>
+    <string name="pin_saving">जतन करत आहे…</string>
+    <string name="pin_saved">पिन जतन झाला. तो टाकून = दाबून उघडा.</string>
+    <string name="pin_failed">पिन जतन करता आला नाही. पुन्हा प्रयत्न करा.</string>
+    <string name="pin_show">पिन दाखवा</string>
+    <string name="pin_hide">पिन लपवा</string>
+
+    <string name="lang_title">तुमची भाषा निवडा</string>
+    <string name="lang_subtitle">नंतर बदलण्यासाठी कॅल्क्युलेटरवरील ग्लोबवर टॅप करा</string>
+    <string name="lang_continue">पुढे चला</string>
+    <string name="lang_selected">निवडलेली</string>
+    <string name="lang_tap">वापरण्यासाठी टॅप करा</string>
+    <string name="lang_button">भाषा</string>
+
+    <string name="ad_badge">जाहिरात</string>
+</resources>

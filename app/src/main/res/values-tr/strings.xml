@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Hesap Makinesi</string>
+    <string name="calc_caption_simple">HER GÜN, DAHA KOLAY</string>
+    <string name="calc_caption_scientific">BİLİMSEL · DERECE</string>
+    <string name="calc_check">Hesabınızı kontrol edin</string>
+    <string name="calc_pin_hint">PIN kodunuzu girin ve = tuşuna dokunun</string>
+    <string name="calc_wait">Tekrar denemeden önce biraz bekleyin</string>
+    <string name="calc_scientific_show">Bilimsel tuşları göster</string>
+    <string name="calc_scientific_hide">Bilimsel tuşları gizle</string>
+
+    <string name="history_title">Hesaplama geçmişi</string>
+    <string name="history_empty">Henüz kayıtlı bir şey yok</string>
+    <plurals name="history_count">
+        <item quantity="one">Bu cihazda %1$d hesaplama kayıtlı</item>
+        <item quantity="other">Bu cihazda %1$d hesaplama kayıtlı</item>
+    </plurals>
+    <string name="history_hint">= ile yaptığınız hesaplamalar burada tutulur. PIN girişleri asla kaydedilmez.</string>
+    <string name="history_clear">Geçmişi temizle</string>
+    <string name="history_clear_detail">Kayıtlı tüm hesaplamaları siler</string>
+    <string name="history_cleared">Hesaplama geçmişi temizlendi</string>
+
+    <string name="intro_title">Size özel hesap makinesi</string>
+    <string name="intro_body">6–12 haneli bir PIN belirleyin. Fotoğraf ve video kasanızı açmak için bunu hesap makinesine girip = tuşuna dokunun.\n\nPIN kurtarma yoktur. Uygulamayı kaldırmak veya verilerini silmek kasayı da siler. Önemli dosyaları önce dışa aktarın.</string>
+    <string name="intro_action">PIN belirle</string>
+
+    <string name="pin_title">PIN kodunuzu oluşturun</string>
+    <string name="pin_body">6–12 hane. Kasanızı açmak için bunu hesap makinesine girip = tuşuna dokunun. Kurtarma yoktur.</string>
+    <string name="pin_hint">PIN (6–12 hane)</string>
+    <string name="pin_confirm">PIN kodunu onaylayın</string>
+    <string name="pin_save">PIN kodunu kaydet</string>
+    <string name="pin_mismatch">6–12 haneli iki aynı PIN girin</string>
+    <string name="pin_saving">Kaydediliyor…</string>
+    <string name="pin_saved">PIN kaydedildi. Kilidi açmak için girip = tuşuna dokunun.</string>
+    <string name="pin_failed">PIN kaydedilemedi. Tekrar deneyin.</string>
+    <string name="pin_show">PIN kodunu göster</string>
+    <string name="pin_hide">PIN kodunu gizle</string>
+
+    <string name="lang_title">Dilinizi seçin</string>
+    <string name="lang_subtitle">Daha sonra değiştirmek için hesap makinesindeki küreye dokunun</string>
+    <string name="lang_continue">Devam</string>
+    <string name="lang_selected">Seçildi</string>
+    <string name="lang_tap">Kullanmak için dokunun</string>
+    <string name="lang_button">Dil</string>
+
+    <string name="ad_badge">Reklam</string>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Rekenmachine</string>
+    <string name="calc_caption_simple">ELKE DAG, EENVOUDIG</string>
+    <string name="calc_caption_scientific">WETENSCHAPPELIJK · GRADEN</string>
+    <string name="calc_check">Controleer je berekening</string>
+    <string name="calc_pin_hint">Voer je pincode in en tik op =</string>
+    <string name="calc_wait">Wacht even voordat je het opnieuw probeert</string>
+    <string name="calc_scientific_show">Wetenschappelijke toetsen tonen</string>
+    <string name="calc_scientific_hide">Wetenschappelijke toetsen verbergen</string>
+
+    <string name="history_title">Rekengeschiedenis</string>
+    <string name="history_empty">Nog niets opgeslagen</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d berekening op dit apparaat opgeslagen</item>
+        <item quantity="other">%1$d berekeningen op dit apparaat opgeslagen</item>
+    </plurals>
+    <string name="history_hint">Berekeningen die je met = uitvoert, worden hier bewaard. Pincodes worden nooit opgeslagen.</string>
+    <string name="history_clear">Geschiedenis wissen</string>
+    <string name="history_clear_detail">Verwijdert alle opgeslagen berekeningen</string>
+    <string name="history_cleared">Rekengeschiedenis gewist</string>
+
+    <string name="intro_title">Je privérekenmachine</string>
+    <string name="intro_body">Stel een pincode van 6–12 cijfers in. Voer die in de rekenmachine in en tik op = om je foto- en videokluis te openen.\n\nEr is geen pincodeherstel. De app verwijderen of de gegevens wissen verwijdert de kluis. Exporteer eerst belangrijke bestanden.</string>
+    <string name="intro_action">Pincode instellen</string>
+
+    <string name="pin_title">Maak je pincode</string>
+    <string name="pin_body">6–12 cijfers. Voer die in de rekenmachine in en tik op = om je kluis te openen. Herstel is niet mogelijk.</string>
+    <string name="pin_hint">Pincode (6–12 cijfers)</string>
+    <string name="pin_confirm">Pincode bevestigen</string>
+    <string name="pin_save">Pincode opslaan</string>
+    <string name="pin_mismatch">Gebruik twee gelijke pincodes van 6–12 cijfers</string>
+    <string name="pin_saving">Opslaan…</string>
+    <string name="pin_saved">Pincode opgeslagen. Voer die in en tik op = om te ontgrendelen.</string>
+    <string name="pin_failed">Pincode kon niet worden opgeslagen. Probeer het opnieuw.</string>
+    <string name="pin_show">Pincode tonen</string>
+    <string name="pin_hide">Pincode verbergen</string>
+
+    <string name="lang_title">Kies je taal</string>
+    <string name="lang_subtitle">Tik op de wereldbol in de rekenmachine om dit later te wijzigen</string>
+    <string name="lang_continue">Doorgaan</string>
+    <string name="lang_selected">Geselecteerd</string>
+    <string name="lang_tap">Tik om te gebruiken</string>
+    <string name="lang_button">Taal</string>
+
+    <string name="ad_badge">Advertentie</string>
+</resources>

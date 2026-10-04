@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">ಕ್ಯಾಲ್ಕುಲೇಟರ್</string>
+    <string name="calc_caption_simple">ದಿನನಿತ್ಯ, ಇನ್ನಷ್ಟು ಸುಲಭ</string>
+    <string name="calc_caption_scientific">ವೈಜ್ಞಾನಿಕ · ಡಿಗ್ರಿ</string>
+    <string name="calc_check">ನಿಮ್ಮ ಲೆಕ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ</string>
+    <string name="calc_pin_hint">ನಿಮ್ಮ ಪಿನ್ ನಮೂದಿಸಿ ಮತ್ತು = ಒತ್ತಿ</string>
+    <string name="calc_wait">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸುವ ಮೊದಲು ಸ್ವಲ್ಪ ಕಾಯಿರಿ</string>
+    <string name="calc_scientific_show">ವೈಜ್ಞಾನಿಕ ಕೀಗಳನ್ನು ತೋರಿಸು</string>
+    <string name="calc_scientific_hide">ವೈಜ್ಞಾನಿಕ ಕೀಗಳನ್ನು ಮರೆಮಾಡು</string>
+
+    <string name="history_title">ಲೆಕ್ಕಗಳ ಇತಿಹಾಸ</string>
+    <string name="history_empty">ಇನ್ನೂ ಏನೂ ಉಳಿಸಿಲ್ಲ</string>
+    <plurals name="history_count">
+        <item quantity="one">ಈ ಸಾಧನದಲ್ಲಿ %1$d ಲೆಕ್ಕ ಉಳಿಸಲಾಗಿದೆ</item>
+        <item quantity="other">ಈ ಸಾಧನದಲ್ಲಿ %1$d ಲೆಕ್ಕಗಳನ್ನು ಉಳಿಸಲಾಗಿದೆ</item>
+    </plurals>
+    <string name="history_hint">= ಮೂಲಕ ಮಾಡಿದ ಲೆಕ್ಕಗಳು ಇಲ್ಲಿ ಉಳಿಯುತ್ತವೆ. ಪಿನ್ ಎಂದಿಗೂ ಉಳಿಯುವುದಿಲ್ಲ.</string>
+    <string name="history_clear">ಇತಿಹಾಸ ಅಳಿಸಿ</string>
+    <string name="history_clear_detail">ಉಳಿಸಿದ ಎಲ್ಲ ಲೆಕ್ಕಗಳನ್ನು ತೆಗೆದುಹಾಕುತ್ತದೆ</string>
+    <string name="history_cleared">ಲೆಕ್ಕಗಳ ಇತಿಹಾಸ ಅಳಿಸಲಾಗಿದೆ</string>
+
+    <string name="intro_title">ನಿಮ್ಮ ಖಾಸಗಿ ಕ್ಯಾಲ್ಕುಲೇಟರ್</string>
+    <string name="intro_body">6–12 ಅಂಕಿಗಳ ಪಿನ್ ಇರಿಸಿ. ಅದನ್ನು ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ನಲ್ಲಿ ನಮೂದಿಸಿ = ಒತ್ತಿದರೆ ನಿಮ್ಮ ಫೋಟೋ ಮತ್ತು ವೀಡಿಯೊ ವಾಲ್ಟ್ ತೆರೆಯುತ್ತದೆ.\n\nಪಿನ್ ಮರಳಿ ಪಡೆಯಲು ದಾರಿಯಿಲ್ಲ. ಆ್ಯಪ್ ತೆಗೆದುಹಾಕಿದರೆ ಅಥವಾ ಅದರ ಡೇಟಾ ಅಳಿಸಿದರೆ ವಾಲ್ಟ್ ಕೂಡ ಹೋಗುತ್ತದೆ. ಮುಖ್ಯ ಫೈಲ್‌ಗಳನ್ನು ಮೊದಲು ರಫ್ತು ಮಾಡಿ.</string>
+    <string name="intro_action">ಪಿನ್ ಇರಿಸಿ</string>
+
+    <string name="pin_title">ನಿಮ್ಮ ಪಿನ್ ರಚಿಸಿ</string>
+    <string name="pin_body">6–12 ಅಂಕಿಗಳು. ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ನಲ್ಲಿ ನಮೂದಿಸಿ = ಒತ್ತಿದರೆ ವಾಲ್ಟ್ ತೆರೆಯುತ್ತದೆ. ಮರಳಿ ಪಡೆಯುವುದಿಲ್ಲ.</string>
+    <string name="pin_hint">ಪಿನ್ (6–12 ಅಂಕಿಗಳು)</string>
+    <string name="pin_confirm">ಪಿನ್ ಖಚಿತಪಡಿಸಿ</string>
+    <string name="pin_save">ಪಿನ್ ಉಳಿಸಿ</string>
+    <string name="pin_mismatch">6–12 ಅಂಕಿಗಳ ಒಂದೇ ಪಿನ್ ಅನ್ನು ಎರಡು ಬಾರಿ ನಮೂದಿಸಿ</string>
+    <string name="pin_saving">ಉಳಿಸಲಾಗುತ್ತಿದೆ…</string>
+    <string name="pin_saved">ಪಿನ್ ಉಳಿಸಲಾಗಿದೆ. ಅದನ್ನು ನಮೂದಿಸಿ = ಒತ್ತಿ ಅನ್‌ಲಾಕ್ ಮಾಡಿ.</string>
+    <string name="pin_failed">ಪಿನ್ ಉಳಿಸಲಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="pin_show">ಪಿನ್ ತೋರಿಸು</string>
+    <string name="pin_hide">ಪಿನ್ ಮರೆಮಾಡು</string>
+
+    <string name="lang_title">ನಿಮ್ಮ ಭಾಷೆ ಆರಿಸಿ</string>
+    <string name="lang_subtitle">ನಂತರ ಬದಲಿಸಲು ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ನ ಗ್ಲೋಬ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="lang_continue">ಮುಂದುವರಿಸಿ</string>
+    <string name="lang_selected">ಆಯ್ಕೆಯಾಗಿದೆ</string>
+    <string name="lang_tap">ಬಳಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="lang_button">ಭಾಷೆ</string>
+
+    <string name="ad_badge">ಜಾಹೀರಾತು</string>
+</resources>

@@ -1,0 +1,8 @@
+<!-- Simplified Union Jack. The diagonals are drawn as strokes rather than the real counterchanged bands, which reads correctly at the 44x30dp the picker uses. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#012169" android:pathData="M0,0h60v40H0z" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="8" android:pathData="M0,0L60,40 M60,0L0,40" />
+    <path android:strokeColor="#C8102E" android:strokeWidth="3.5" android:pathData="M0,0L60,40 M60,0L0,40" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="13" android:pathData="M30,0V40 M0,20H60" />
+    <path android:strokeColor="#C8102E" android:strokeWidth="7.5" android:pathData="M30,0V40 M0,20H60" />
+</vector>

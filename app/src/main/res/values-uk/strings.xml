@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ukrainian counts in four categories, so history_count carries one, few, many and other. -->
+<resources>
+    <string name="app_title">Калькулятор</string>
+    <string name="calc_caption_simple">ЩОДНЯ, ПРОСТІШЕ</string>
+    <string name="calc_caption_scientific">ІНЖЕНЕРНИЙ · ГРАДУСИ</string>
+    <string name="calc_check">Перевірте обчислення</string>
+    <string name="calc_pin_hint">Введіть PIN-код і натисніть =</string>
+    <string name="calc_wait">Зачекайте, перш ніж спробувати знову</string>
+    <string name="calc_scientific_show">Показати інженерні клавіші</string>
+    <string name="calc_scientific_hide">Сховати інженерні клавіші</string>
+
+    <string name="history_title">Історія обчислень</string>
+    <string name="history_empty">Поки нічого не збережено</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d обчислення збережено на цьому пристрої</item>
+        <item quantity="few">%1$d обчислення збережено на цьому пристрої</item>
+        <item quantity="many">%1$d обчислень збережено на цьому пристрої</item>
+        <item quantity="other">%1$d обчислення збережено на цьому пристрої</item>
+    </plurals>
+    <string name="history_hint">Обчислення, виконані кнопкою =, зберігаються тут. PIN-коди не зберігаються ніколи.</string>
+    <string name="history_clear">Очистити історію</string>
+    <string name="history_clear_detail">Видаляє всі збережені обчислення</string>
+    <string name="history_cleared">Історію обчислень очищено</string>
+
+    <string name="intro_title">Ваш приватний калькулятор</string>
+    <string name="intro_body">Задайте PIN-код із 6–12 цифр. Введіть його в калькуляторі й натисніть =, щоб відкрити сховище фото та відео.\n\nВідновити PIN-код неможливо. Видалення застосунку або його даних видаляє сховище. Спершу експортуйте важливі файли.</string>
+    <string name="intro_action">Задати PIN-код</string>
+
+    <string name="pin_title">Створіть PIN-код</string>
+    <string name="pin_body">6–12 цифр. Введіть його в калькуляторі й натисніть =, щоб відкрити сховище. Відновлення немає.</string>
+    <string name="pin_hint">PIN-код (6–12 цифр)</string>
+    <string name="pin_confirm">Підтвердьте PIN-код</string>
+    <string name="pin_save">Зберегти PIN-код</string>
+    <string name="pin_mismatch">Введіть два однакові PIN-коди з 6–12 цифр</string>
+    <string name="pin_saving">Збереження…</string>
+    <string name="pin_saved">PIN-код збережено. Введіть його й натисніть =, щоб розблокувати.</string>
+    <string name="pin_failed">Не вдалося зберегти PIN-код. Спробуйте ще раз.</string>
+    <string name="pin_show">Показати PIN-код</string>
+    <string name="pin_hide">Сховати PIN-код</string>
+
+    <string name="lang_title">Виберіть мову</string>
+    <string name="lang_subtitle">Торкніться глобуса в калькуляторі, щоб змінити її пізніше</string>
+    <string name="lang_continue">Продовжити</string>
+    <string name="lang_selected">Вибрано</string>
+    <string name="lang_tap">Торкніться, щоб вибрати</string>
+    <string name="lang_button">Мова</string>
+
+    <string name="ad_badge">Реклама</string>
+</resources>

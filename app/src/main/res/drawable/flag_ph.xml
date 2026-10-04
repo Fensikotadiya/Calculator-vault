@@ -1,0 +1,10 @@
+<!-- Philippines. The sun's eight rays and the three corner stars are reduced to discs. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#0038A8" android:pathData="M0,0h60v20H0z" />
+    <path android:fillColor="#CE1126" android:pathData="M0,20h60v20H0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M0,0L26,20L0,40Z" />
+    <path android:fillColor="#FCD116" android:pathData="M4.5,20a3.5,3.5 0 1,0 7,0a3.5,3.5 0 1,0 -7,0" />
+    <path android:fillColor="#FCD116" android:pathData="M2,5.5a1.6,1.6 0 1,0 3.2,0a1.6,1.6 0 1,0 -3.2,0" />
+    <path android:fillColor="#FCD116" android:pathData="M2,34.5a1.6,1.6 0 1,0 3.2,0a1.6,1.6 0 1,0 -3.2,0" />
+    <path android:fillColor="#FCD116" android:pathData="M19.4,20a1.6,1.6 0 1,0 3.2,0a1.6,1.6 0 1,0 -3.2,0" />
+</vector>

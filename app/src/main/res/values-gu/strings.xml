@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">કેલ્ક્યુલેટર</string>
+    <string name="calc_caption_simple">રોજિંદી ગણતરી, સરળ</string>
+    <string name="calc_caption_scientific">વૈજ્ઞાનિક · ડિગ્રી</string>
+    <string name="calc_check">તમારી ગણતરી તપાસો</string>
+    <string name="calc_pin_hint">તમારો પિન દાખલ કરો અને = દબાવો</string>
+    <string name="calc_wait">ફરી પ્રયાસ કરતાં પહેલાં થોડી રાહ જુઓ</string>
+    <string name="calc_scientific_show">વૈજ્ઞાનિક કી બતાવો</string>
+    <string name="calc_scientific_hide">વૈજ્ઞાનિક કી છુપાવો</string>
+
+    <string name="history_title">ગણતરીનો ઇતિહાસ</string>
+    <string name="history_empty">હજી કંઈ સાચવ્યું નથી</string>
+    <plurals name="history_count">
+        <item quantity="one">આ ડિવાઇસ પર %1$d ગણતરી સાચવી છે</item>
+        <item quantity="other">આ ડિવાઇસ પર %1$d ગણતરીઓ સાચવી છે</item>
+    </plurals>
+    <string name="history_hint">= થી કરેલી ગણતરીઓ અહીં રહે છે. પિન કદી સાચવાતો નથી.</string>
+    <string name="history_clear">ઇતિહાસ સાફ કરો</string>
+    <string name="history_clear_detail">સાચવેલી બધી ગણતરીઓ દૂર કરે છે</string>
+    <string name="history_cleared">ગણતરીનો ઇતિહાસ સાફ થયો</string>
+
+    <string name="intro_title">તમારું ખાનગી કેલ્ક્યુલેટર</string>
+    <string name="intro_body">6–12 અંકનો પિન સેટ કરો. કેલ્ક્યુલેટરમાં તે દાખલ કરી = દબાવો અને તમારું ફોટો અને વિડિયો વૉલ્ટ ખોલો.\n\nપિન પાછો મેળવવાનો કોઈ રસ્તો નથી. ઍપ દૂર કરવાથી કે તેનો ડેટા સાફ કરવાથી વૉલ્ટ પણ જતું રહે છે. જરૂરી ફાઇલો પહેલાં એક્સપોર્ટ કરી લો.</string>
+    <string name="intro_action">પિન સેટ કરો</string>
+
+    <string name="pin_title">તમારો પિન બનાવો</string>
+    <string name="pin_body">6–12 અંક. કેલ્ક્યુલેટરમાં તે દાખલ કરી = દબાવો અને વૉલ્ટ ખોલો. તેને પાછો મેળવી શકાતો નથી.</string>
+    <string name="pin_hint">પિન (6–12 અંક)</string>
+    <string name="pin_confirm">પિન ફરી દાખલ કરો</string>
+    <string name="pin_save">પિન સાચવો</string>
+    <string name="pin_mismatch">6–12 અંકના સરખા પિન દાખલ કરો</string>
+    <string name="pin_saving">સાચવાઈ રહ્યું છે…</string>
+    <string name="pin_saved">પિન સાચવ્યો. તે દાખલ કરી = દબાવો.</string>
+    <string name="pin_failed">પિન સાચવી શકાયો નથી. ફરી પ્રયાસ કરો.</string>
+    <string name="pin_show">પિન બતાવો</string>
+    <string name="pin_hide">પિન છુપાવો</string>
+
+    <string name="lang_title">તમારી ભાષા પસંદ કરો</string>
+    <string name="lang_subtitle">પછી બદલવા માટે કેલ્ક્યુલેટર પરનો ગ્લોબ દબાવો</string>
+    <string name="lang_continue">આગળ વધો</string>
+    <string name="lang_selected">પસંદ કરેલી</string>
+    <string name="lang_tap">પસંદ કરવા દબાવો</string>
+    <string name="lang_button">ભાષા</string>
+
+    <!-- AdMob requires the ad to be marked as one. Short enough to sit beside the headline. -->
+    <string name="ad_badge">જાહેરાત</string>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Calculator</string>
+    <string name="calc_caption_simple">ARAW-ARAW, MAS SIMPLE</string>
+    <string name="calc_caption_scientific">SCIENTIFIC · DEGREES</string>
+    <string name="calc_check">Suriin ang iyong kalkulasyon</string>
+    <string name="calc_pin_hint">Ilagay ang iyong PIN at pindutin ang =</string>
+    <string name="calc_wait">Maghintay muna bago subukan ulit</string>
+    <string name="calc_scientific_show">Ipakita ang mga scientific key</string>
+    <string name="calc_scientific_hide">Itago ang mga scientific key</string>
+
+    <string name="history_title">Kasaysayan ng kalkulasyon</string>
+    <string name="history_empty">Wala pang naka-save</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d kalkulasyon ang naka-save sa device na ito</item>
+        <item quantity="other">%1$d na kalkulasyon ang naka-save sa device na ito</item>
+    </plurals>
+    <string name="history_hint">Ang mga kalkulasyong ginawa mo gamit ang = ay itinatago rito. Hindi kailanman sine-save ang PIN.</string>
+    <string name="history_clear">I-clear ang kasaysayan</string>
+    <string name="history_clear_detail">Tinatanggal ang lahat ng naka-save na kalkulasyon</string>
+    <string name="history_cleared">Na-clear ang kasaysayan ng kalkulasyon</string>
+
+    <string name="intro_title">Ang iyong pribadong calculator</string>
+    <string name="intro_body">Gumawa ng PIN na 6–12 digit. Ilagay ito sa calculator at pindutin ang = para buksan ang iyong vault ng mga larawan at video.\n\nWalang paraan para mabawi ang PIN. Ang pag-uninstall ng app o pag-clear ng data nito ay nagtatanggal din sa vault. I-export muna ang mahahalagang file.</string>
+    <string name="intro_action">Itakda ang PIN</string>
+
+    <string name="pin_title">Gawin ang iyong PIN</string>
+    <string name="pin_body">6–12 digit. Ilagay ito sa calculator at pindutin ang = para buksan ang vault. Walang pagbawi.</string>
+    <string name="pin_hint">PIN (6–12 digit)</string>
+    <string name="pin_confirm">Kumpirmahin ang PIN</string>
+    <string name="pin_save">I-save ang PIN</string>
+    <string name="pin_mismatch">Gumamit ng dalawang magkaparehong PIN na 6–12 digit</string>
+    <string name="pin_saving">Sine-save…</string>
+    <string name="pin_saved">Na-save ang PIN. Ilagay ito at pindutin ang = para i-unlock.</string>
+    <string name="pin_failed">Hindi na-save ang PIN. Subukan ulit.</string>
+    <string name="pin_show">Ipakita ang PIN</string>
+    <string name="pin_hide">Itago ang PIN</string>
+
+    <string name="lang_title">Piliin ang iyong wika</string>
+    <string name="lang_subtitle">Pindutin ang globo sa calculator para baguhin ito mamaya</string>
+    <string name="lang_continue">Magpatuloy</string>
+    <string name="lang_selected">Napili</string>
+    <string name="lang_tap">Pindutin para gamitin</string>
+    <string name="lang_button">Wika</string>
+
+    <string name="ad_badge">Ad</string>
+</resources>

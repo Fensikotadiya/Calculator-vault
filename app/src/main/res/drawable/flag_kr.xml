@@ -1,0 +1,9 @@
+<!-- South Korea. The taeguk is built from a disc and two half-discs; the four trigrams are single bars, since three stacked lines close up at picker size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#FFFFFF" android:pathData="M0,0h60v40H0z" />
+    <path android:fillColor="#CD2E3A" android:pathData="M22,20a8,8 0 1,0 16,0a8,8 0 1,0 -16,0" />
+    <path android:fillColor="#0047A0" android:pathData="M22,20A8,8 0 0,0 38,20Z" />
+    <path android:fillColor="#0047A0" android:pathData="M22,20A4,4 0 0,1 30,20Z" />
+    <path android:fillColor="#CD2E3A" android:pathData="M30,20A4,4 0 0,0 38,20Z" />
+    <path android:strokeColor="#000000" android:strokeWidth="1.6" android:pathData="M8,8L14,13 M8,32L14,27 M46,8L52,13 M46,32L52,27" />
+</vector>

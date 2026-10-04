@@ -1,0 +1,9 @@
+<!-- Iran. The emblem in the white band is suggested by a single mark; the script borders are left off. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#239F40" android:pathData="M0,0h60v13.33H0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M0,13.33h60v13.34H0z" />
+    <path android:fillColor="#DA0000" android:pathData="M0,26.67h60v13.33H0z" />
+    <path android:fillColor="#DA0000" android:pathData="M30,15.5c-1.6,1.6 -1.6,4.4 0,6c1.6,-1.6 1.6,-4.4 0,-6z" />
+    <path android:fillColor="#DA0000" android:pathData="M26.6,17.4c-1,1.2 -0.8,3 0.4,3.9c0.5,-1.4 0.3,-2.9 -0.4,-3.9z" />
+    <path android:fillColor="#DA0000" android:pathData="M33.4,17.4c1,1.2 0.8,3 -0.4,3.9c-0.5,-1.4 -0.3,-2.9 0.4,-3.9z" />
+</vector>

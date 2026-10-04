@@ -1,16 +1,16 @@
 # Privacy Policy for Calculator Vault: Hide Photo
 
-Last updated: 29 September 2026
+Last updated: 2 October 2026
 
 Calculator Vault ("the app") is an Android app that works as a calculator, keeps a PIN-protected vault for photos, videos, phone numbers, and notes on your device, and includes a private browser. This policy explains how the app handles your information.
 
 ## Data the developer collects
 
-**None.** The app does not collect, transmit, sell, or share any personal data.
+**None.** The app does not collect, transmit, sell, or share any personal data, and nothing you put in the vault ever leaves your device.
 
-- The app sends nothing to the developer. Its only network use is the browser tab, which connects to the sites you choose to visit and to nothing else.
-- There are no accounts, sign-ins, ads, analytics, crash reporting, or third-party SDKs.
+- The app sends nothing to the developer. There are no accounts, sign-ins, analytics, or crash reporting.
 - The developer cannot see your PIN, your photos, your videos, your contacts, your notes, the pages you visit, or how you use the app.
+- **The app does show ads,** which are supplied by Google AdMob. AdMob is a third party and collects data of its own — see [Advertising](#advertising) below. The developer receives payment reports from Google, never your data.
 
 ## Data the app stores on your device
 
@@ -31,7 +31,18 @@ Removing an original takes it out of your gallery on this phone. It does not rea
 
 - **No permission is needed to use the vault.** To add media the app uses Android's system file picker, and to import a contact it uses Android's system contact picker. Both give the app access only to the single item you pick, and neither requires the storage or contacts permission. Removing an original from the gallery also needs no storage permission: on Android 11 and newer the app asks Android to delete the items it just imported, and Android puts that request to you in its own dialog.
 - **CALL_PHONE is optional.** By default, calling a vault contact opens your phone's dialer with the number filled in, which needs no permission. If you turn on direct calling in vault settings, Android asks for the phone permission once so the call can start without leaving the app. Declining keeps the dialer behaviour, and you can turn it off again at any time.
-- **INTERNET is used only by the browser tab.** The calculator, the vault, your contacts, and your notes work with the device offline. No part of the app contacts the developer or any analytics, advertising, or crash-reporting service.
+- **INTERNET is used by the browser tab and by the ads.** The calculator, the vault, your contacts, and your notes all work with the device offline; only the ad slots and the browser need a connection, and nothing fails without one. No part of the app contacts the developer or any analytics or crash-reporting service.
+- **AD_ID is declared for the ads.** It lets the Google Mobile Ads SDK read your device's advertising identifier. You can reset that identifier, or switch off ad personalisation entirely, in Android's **Settings → Privacy → Ads**.
+
+## Advertising
+
+The app shows ads from **Google AdMob**: one on the calculator screen, and one in the Photos, Videos, Contacts and Notes tabs. The browser tab carries none.
+
+- **What AdMob receives.** Google's advertising SDK collects your device's advertising identifier, IP address, device and app information, and your interactions with the ad itself. Google uses these to select and measure ads. This is described in [Google's Privacy & Terms](https://policies.google.com/privacy) and in [How Google uses information from sites or apps that use our services](https://policies.google.com/technologies/partner-sites).
+- **What AdMob never receives.** Ads are drawn next to your vault, not inside it. The SDK is handed no photo, video, contact, note, calculation, PIN, or address you have visited, and it has no way of reading the encrypted vault files or the decrypted copies in the app's private cache. It is given only the ad slot to fill.
+- **Ads do not follow you into the vault's secrets.** The ad shown is chosen from your advertising identifier and your general location from your IP address, exactly as in any other free app — never from what you have hidden.
+- **Opening an ad locks the vault.** Tapping an ad leaves the app, and leaving the app locks the vault, as it always does. You return to the calculator and your PIN is needed again.
+- **Turning personalisation off.** Android's **Settings → Privacy → Ads** lets you delete or reset the advertising identifier and opt out of personalised ads for every app on the device, including this one. The app keeps working and still shows ads; they are simply chosen without that profile.
 
 ## Calls
 

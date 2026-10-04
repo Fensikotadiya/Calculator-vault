@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">ক্যালকুলেটর</string>
+    <string name="calc_caption_simple">প্রতিদিন, আরও সহজ</string>
+    <string name="calc_caption_scientific">বৈজ্ঞানিক · ডিগ্রি</string>
+    <string name="calc_check">আপনার হিসাব দেখে নিন</string>
+    <string name="calc_pin_hint">আপনার পিন দিন এবং = চাপুন</string>
+    <string name="calc_wait">আবার চেষ্টা করার আগে একটু অপেক্ষা করুন</string>
+    <string name="calc_scientific_show">বৈজ্ঞানিক কী দেখান</string>
+    <string name="calc_scientific_hide">বৈজ্ঞানিক কী লুকান</string>
+
+    <string name="history_title">হিসাবের ইতিহাস</string>
+    <string name="history_empty">এখনও কিছু সংরক্ষিত হয়নি</string>
+    <plurals name="history_count">
+        <item quantity="one">এই ডিভাইসে %1$d টি হিসাব সংরক্ষিত</item>
+        <item quantity="other">এই ডিভাইসে %1$d টি হিসাব সংরক্ষিত</item>
+    </plurals>
+    <string name="history_hint">= দিয়ে করা হিসাব এখানে রাখা হয়। পিন কখনও সংরক্ষণ করা হয় না।</string>
+    <string name="history_clear">ইতিহাস মুছুন</string>
+    <string name="history_clear_detail">সংরক্ষিত সব হিসাব সরিয়ে দেয়</string>
+    <string name="history_cleared">হিসাবের ইতিহাস মুছে ফেলা হয়েছে</string>
+
+    <string name="intro_title">আপনার ব্যক্তিগত ক্যালকুলেটর</string>
+    <string name="intro_body">৬–১২ সংখ্যার একটি পিন দিন। ক্যালকুলেটরে সেটি লিখে = চাপলে আপনার ছবি ও ভিডিওর ভল্ট খুলবে।\n\nপিন পুনরুদ্ধারের কোনও উপায় নেই। অ্যাপ আনইনস্টল করলে বা এর ডেটা মুছে ফেললে ভল্টও মুছে যায়। গুরুত্বপূর্ণ ফাইল আগে রপ্তানি করে নিন।</string>
+    <string name="intro_action">পিন সেট করুন</string>
+
+    <string name="pin_title">আপনার পিন তৈরি করুন</string>
+    <string name="pin_body">৬–১২ সংখ্যা। ক্যালকুলেটরে লিখে = চাপলে ভল্ট খুলবে। পুনরুদ্ধারের উপায় নেই।</string>
+    <string name="pin_hint">পিন (৬–১২ সংখ্যা)</string>
+    <string name="pin_confirm">পিন নিশ্চিত করুন</string>
+    <string name="pin_save">পিন সংরক্ষণ করুন</string>
+    <string name="pin_mismatch">৬–১২ সংখ্যার দুটি একই পিন দিন</string>
+    <string name="pin_saving">সংরক্ষণ করা হচ্ছে…</string>
+    <string name="pin_saved">পিন সংরক্ষিত হয়েছে। লিখে = চেপে আনলক করুন।</string>
+    <string name="pin_failed">পিন সংরক্ষণ করা যায়নি। আবার চেষ্টা করুন।</string>
+    <string name="pin_show">পিন দেখান</string>
+    <string name="pin_hide">পিন লুকান</string>
+
+    <string name="lang_title">আপনার ভাষা বেছে নিন</string>
+    <string name="lang_subtitle">পরে বদলাতে ক্যালকুলেটরের গ্লোবে চাপ দিন</string>
+    <string name="lang_continue">চালিয়ে যান</string>
+    <string name="lang_selected">নির্বাচিত</string>
+    <string name="lang_tap">ব্যবহার করতে চাপুন</string>
+    <string name="lang_button">ভাষা</string>
+
+    <string name="ad_badge">বিজ্ঞাপন</string>
+</resources>

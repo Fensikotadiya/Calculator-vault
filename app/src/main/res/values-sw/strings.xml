@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Kikokotoo</string>
+    <string name="calc_caption_simple">KILA SIKU, KWA URAHISI</string>
+    <string name="calc_caption_scientific">KISAYANSI · DIGRII</string>
+    <string name="calc_check">Angalia hesabu yako</string>
+    <string name="calc_pin_hint">Weka PIN yako kisha gusa =</string>
+    <string name="calc_wait">Subiri kidogo kabla ya kujaribu tena</string>
+    <string name="calc_scientific_show">Onyesha vitufe vya kisayansi</string>
+    <string name="calc_scientific_hide">Ficha vitufe vya kisayansi</string>
+
+    <string name="history_title">Historia ya hesabu</string>
+    <string name="history_empty">Bado hakuna kilichohifadhiwa</string>
+    <plurals name="history_count">
+        <item quantity="one">Hesabu %1$d imehifadhiwa kwenye kifaa hiki</item>
+        <item quantity="other">Hesabu %1$d zimehifadhiwa kwenye kifaa hiki</item>
+    </plurals>
+    <string name="history_hint">Hesabu unazofanya kwa = huhifadhiwa hapa. PIN haihifadhiwi kamwe.</string>
+    <string name="history_clear">Futa historia</string>
+    <string name="history_clear_detail">Huondoa hesabu zote zilizohifadhiwa</string>
+    <string name="history_cleared">Historia ya hesabu imefutwa</string>
+
+    <string name="intro_title">Kikokotoo chako binafsi</string>
+    <string name="intro_body">Weka PIN ya tarakimu 6–12. Iweke kwenye kikokotoo kisha gusa = ili kufungua sefu yako ya picha na video.\n\nHakuna njia ya kurejesha PIN. Kuondoa programu au kufuta data yake huondoa sefu pia. Hamisha faili muhimu kwanza.</string>
+    <string name="intro_action">Weka PIN</string>
+
+    <string name="pin_title">Tengeneza PIN yako</string>
+    <string name="pin_body">Tarakimu 6–12. Iweke kwenye kikokotoo kisha gusa = ili kufungua sefu yako. Hakuna kurejesha.</string>
+    <string name="pin_hint">PIN (tarakimu 6–12)</string>
+    <string name="pin_confirm">Thibitisha PIN</string>
+    <string name="pin_save">Hifadhi PIN</string>
+    <string name="pin_mismatch">Weka PIN mbili zinazofanana za tarakimu 6–12</string>
+    <string name="pin_saving">Inahifadhi…</string>
+    <string name="pin_saved">PIN imehifadhiwa. Iweke kisha gusa = ili kufungua.</string>
+    <string name="pin_failed">Imeshindwa kuhifadhi PIN. Jaribu tena.</string>
+    <string name="pin_show">Onyesha PIN</string>
+    <string name="pin_hide">Ficha PIN</string>
+
+    <string name="lang_title">Chagua lugha yako</string>
+    <string name="lang_subtitle">Gusa dunia kwenye kikokotoo ili kuibadilisha baadaye</string>
+    <string name="lang_continue">Endelea</string>
+    <string name="lang_selected">Imechaguliwa</string>
+    <string name="lang_tap">Gusa ili kutumia</string>
+    <string name="lang_button">Lugha</string>
+
+    <string name="ad_badge">Tangazo</string>
+</resources>

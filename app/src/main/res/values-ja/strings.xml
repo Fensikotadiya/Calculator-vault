@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Japanese has one plural form. -->
+<resources>
+    <string name="app_title">電卓</string>
+    <string name="calc_caption_simple">毎日を、シンプルに</string>
+    <string name="calc_caption_scientific">関数電卓 · 度</string>
+    <string name="calc_check">計算を確認してください</string>
+    <string name="calc_pin_hint">PIN を入力して = をタップ</string>
+    <string name="calc_wait">しばらく待ってからもう一度お試しください</string>
+    <string name="calc_scientific_show">関数キーを表示</string>
+    <string name="calc_scientific_hide">関数キーを非表示</string>
+
+    <string name="history_title">計算履歴</string>
+    <string name="history_empty">まだ保存されていません</string>
+    <plurals name="history_count">
+        <item quantity="other">この端末に %1$d 件の計算を保存しています</item>
+    </plurals>
+    <string name="history_hint">= で実行した計算はここに残ります。PIN の入力は保存されません。</string>
+    <string name="history_clear">履歴を消去</string>
+    <string name="history_clear_detail">保存された計算をすべて削除します</string>
+    <string name="history_cleared">計算履歴を消去しました</string>
+
+    <string name="intro_title">あなただけの電卓</string>
+    <string name="intro_body">6〜12 桁の PIN を設定してください。電卓でその PIN を入力して = をタップすると、写真と動画の保管庫が開きます。\n\nPIN の復元はできません。アプリの削除やデータの消去を行うと保管庫もなくなります。大切なファイルは先に書き出してください。</string>
+    <string name="intro_action">PIN を設定</string>
+
+    <string name="pin_title">PIN を作成</string>
+    <string name="pin_body">6〜12 桁。電卓で入力して = をタップすると保管庫が開きます。復元はできません。</string>
+    <string name="pin_hint">PIN（6〜12 桁）</string>
+    <string name="pin_confirm">PIN を確認</string>
+    <string name="pin_save">PIN を保存</string>
+    <string name="pin_mismatch">6〜12 桁の同じ PIN を入力してください</string>
+    <string name="pin_saving">保存しています…</string>
+    <string name="pin_saved">PIN を保存しました。入力して = をタップすると解除できます。</string>
+    <string name="pin_failed">PIN を保存できませんでした。もう一度お試しください。</string>
+    <string name="pin_show">PIN を表示</string>
+    <string name="pin_hide">PIN を非表示</string>
+
+    <string name="lang_title">言語を選択</string>
+    <string name="lang_subtitle">あとで変えるときは電卓の地球儀をタップします</string>
+    <string name="lang_continue">続ける</string>
+    <string name="lang_selected">選択中</string>
+    <string name="lang_tap">タップして使う</string>
+    <string name="lang_button">言語</string>
+
+    <string name="ad_badge">広告</string>
+</resources>

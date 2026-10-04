@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">Calcolatrice</string>
+    <string name="calc_caption_simple">OGNI GIORNO, PIÙ SEMPLICE</string>
+    <string name="calc_caption_scientific">SCIENTIFICA · GRADI</string>
+    <string name="calc_check">Controlla il tuo calcolo</string>
+    <string name="calc_pin_hint">Inserisci il PIN e tocca =</string>
+    <string name="calc_wait">Attendi prima di riprovare</string>
+    <string name="calc_scientific_show">Mostra i tasti scientifici</string>
+    <string name="calc_scientific_hide">Nascondi i tasti scientifici</string>
+
+    <string name="history_title">Cronologia dei calcoli</string>
+    <string name="history_empty">Niente salvato per ora</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d calcolo salvato su questo dispositivo</item>
+        <item quantity="many">%1$d calcoli salvati su questo dispositivo</item>
+        <item quantity="other">%1$d calcoli salvati su questo dispositivo</item>
+    </plurals>
+    <string name="history_hint">I calcoli eseguiti con = vengono conservati qui. I PIN non vengono mai salvati.</string>
+    <string name="history_clear">Cancella cronologia</string>
+    <string name="history_clear_detail">Rimuove tutti i calcoli salvati</string>
+    <string name="history_cleared">Cronologia dei calcoli cancellata</string>
+
+    <string name="intro_title">La tua calcolatrice privata</string>
+    <string name="intro_body">Imposta un PIN di 6–12 cifre. Inseriscilo nella calcolatrice e tocca = per aprire la tua cassaforte di foto e video.\n\nNon esiste il recupero del PIN. Disinstallare l\'app o cancellarne i dati rimuove la cassaforte. Esporta prima i file importanti.</string>
+    <string name="intro_action">Imposta PIN</string>
+
+    <string name="pin_title">Crea il tuo PIN</string>
+    <string name="pin_body">6–12 cifre. Inseriscilo nella calcolatrice e tocca = per aprire la cassaforte. Non c\'è recupero.</string>
+    <string name="pin_hint">PIN (6–12 cifre)</string>
+    <string name="pin_confirm">Conferma PIN</string>
+    <string name="pin_save">Salva PIN</string>
+    <string name="pin_mismatch">Usa due PIN uguali di 6–12 cifre</string>
+    <string name="pin_saving">Salvataggio…</string>
+    <string name="pin_saved">PIN salvato. Inseriscilo e tocca = per sbloccare.</string>
+    <string name="pin_failed">Impossibile salvare il PIN. Riprova.</string>
+    <string name="pin_show">Mostra PIN</string>
+    <string name="pin_hide">Nascondi PIN</string>
+
+    <string name="lang_title">Scegli la tua lingua</string>
+    <string name="lang_subtitle">Tocca il globo nella calcolatrice per cambiarla in seguito</string>
+    <string name="lang_continue">Continua</string>
+    <string name="lang_selected">Selezionata</string>
+    <string name="lang_tap">Tocca per usare</string>
+    <string name="lang_button">Lingua</string>
+
+    <string name="ad_badge">Ann.</string>
+</resources>

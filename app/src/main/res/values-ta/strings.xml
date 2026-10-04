@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_title">கால்குலேட்டர்</string>
+    <string name="calc_caption_simple">அன்றாடம், எளிதாக</string>
+    <string name="calc_caption_scientific">அறிவியல் · டிகிரி</string>
+    <string name="calc_check">உங்கள் கணக்கைச் சரிபார்க்கவும்</string>
+    <string name="calc_pin_hint">உங்கள் பின்னை உள்ளிட்டு = ஐத் தட்டவும்</string>
+    <string name="calc_wait">மீண்டும் முயல்வதற்கு முன் சற்று காத்திருங்கள்</string>
+    <string name="calc_scientific_show">அறிவியல் விசைகளைக் காட்டு</string>
+    <string name="calc_scientific_hide">அறிவியல் விசைகளை மறை</string>
+
+    <string name="history_title">கணக்கு வரலாறு</string>
+    <string name="history_empty">இதுவரை எதுவும் சேமிக்கப்படவில்லை</string>
+    <plurals name="history_count">
+        <item quantity="one">இந்தச் சாதனத்தில் %1$d கணக்கு சேமிக்கப்பட்டுள்ளது</item>
+        <item quantity="other">இந்தச் சாதனத்தில் %1$d கணக்குகள் சேமிக்கப்பட்டுள்ளன</item>
+    </plurals>
+    <string name="history_hint">= மூலம் செய்த கணக்குகள் இங்கே இருக்கும். பின் ஒருபோதும் சேமிக்கப்படுவதில்லை.</string>
+    <string name="history_clear">வரலாற்றை அழி</string>
+    <string name="history_clear_detail">சேமித்த கணக்குகள் அனைத்தையும் நீக்கும்</string>
+    <string name="history_cleared">கணக்கு வரலாறு அழிக்கப்பட்டது</string>
+
+    <string name="intro_title">உங்கள் தனிப்பட்ட கால்குலேட்டர்</string>
+    <string name="intro_body">6–12 இலக்கப் பின்னை அமைக்கவும். அதைக் கால்குலேட்டரில் உள்ளிட்டு = ஐத் தட்டினால் உங்கள் புகைப்பட, வீடியோப் பெட்டகம் திறக்கும்.\n\nபின்னை மீட்க வழியில்லை. ஆப்ஸை நீக்கினாலோ அதன் தரவை அழித்தாலோ பெட்டகமும் போய்விடும். முக்கியமான கோப்புகளை முதலில் ஏற்றுமதி செய்யுங்கள்.</string>
+    <string name="intro_action">பின்னை அமை</string>
+
+    <string name="pin_title">உங்கள் பின்னை உருவாக்கவும்</string>
+    <string name="pin_body">6–12 இலக்கங்கள். கால்குலேட்டரில் உள்ளிட்டு = ஐத் தட்டினால் பெட்டகம் திறக்கும். மீட்பு இல்லை.</string>
+    <string name="pin_hint">பின் (6–12 இலக்கங்கள்)</string>
+    <string name="pin_confirm">பின்னை உறுதிப்படுத்து</string>
+    <string name="pin_save">பின்னைச் சேமி</string>
+    <string name="pin_mismatch">6–12 இலக்கங்களுள்ள ஒரே பின்னை இருமுறை உள்ளிடவும்</string>
+    <string name="pin_saving">சேமிக்கிறது…</string>
+    <string name="pin_saved">பின் சேமிக்கப்பட்டது. அதை உள்ளிட்டு = ஐத் தட்டித் திறக்கவும்.</string>
+    <string name="pin_failed">பின்னைச் சேமிக்க முடியவில்லை. மீண்டும் முயலவும்.</string>
+    <string name="pin_show">பின்னைக் காட்டு</string>
+    <string name="pin_hide">பின்னை மறை</string>
+
+    <string name="lang_title">உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="lang_subtitle">பின்னர் மாற்ற கால்குலேட்டரில் உள்ள உருண்டையைத் தட்டவும்</string>
+    <string name="lang_continue">தொடரவும்</string>
+    <string name="lang_selected">தேர்ந்தெடுக்கப்பட்டது</string>
+    <string name="lang_tap">பயன்படுத்தத் தட்டவும்</string>
+    <string name="lang_button">மொழி</string>
+
+    <string name="ad_badge">விளம்பரம்</string>
+</resources>

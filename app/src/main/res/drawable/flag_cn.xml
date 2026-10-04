@@ -1,0 +1,9 @@
+<!-- China. The four small stars are drawn upright rather than tilted toward the large one; at picker size the tilt is lost anyway. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#EE1C25" android:pathData="M0,0h60v40H0z" />
+    <path android:fillColor="#FFFF00" android:pathData="M12,6L13.35,10.15L17.71,10.15L14.18,12.71L15.53,16.85L12,14.29L8.47,16.85L9.82,12.71L6.29,10.15L10.65,10.15Z" />
+    <path android:fillColor="#FFFF00" android:pathData="M24,4L24.45,5.38L25.9,5.38L24.73,6.24L25.18,7.62L24,6.76L22.82,7.62L23.27,6.24L22.1,5.38L23.55,5.38Z" />
+    <path android:fillColor="#FFFF00" android:pathData="M29,9L29.45,10.38L30.9,10.38L29.73,11.24L30.18,12.62L29,11.76L27.82,12.62L28.27,11.24L27.1,10.38L28.55,10.38Z" />
+    <path android:fillColor="#FFFF00" android:pathData="M29,16L29.45,17.38L30.9,17.38L29.73,18.24L30.18,19.62L29,18.76L27.82,19.62L28.27,18.24L27.1,17.38L28.55,17.38Z" />
+    <path android:fillColor="#FFFF00" android:pathData="M24,21L24.45,22.38L25.9,22.38L24.73,23.24L25.18,24.62L24,23.76L22.82,24.62L23.27,23.24L22.1,22.38L23.55,22.38Z" />
+</vector>

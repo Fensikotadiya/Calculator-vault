@@ -1,0 +1,12 @@
+<!-- Kenya, shown for Swahili. The Maasai shield keeps its three colours; the crossed spears are plain strokes. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="60dp" android:height="40dp" android:viewportWidth="60" android:viewportHeight="40">
+    <path android:fillColor="#000000" android:pathData="M0,0h60v12H0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M0,12h60v2H0z" />
+    <path android:fillColor="#BB0000" android:pathData="M0,14h60v12H0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M0,26h60v2H0z" />
+    <path android:fillColor="#006600" android:pathData="M0,28h60v12H0z" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.4" android:pathData="M24,7L36,33 M36,7L24,33" />
+    <path android:fillColor="#FFFFFF" android:pathData="M24.5,20a5.5,9.5 0 1,0 11,0a5.5,9.5 0 1,0 -11,0" />
+    <path android:fillColor="#BB0000" android:pathData="M26.8,20a3.2,6.8 0 1,0 6.4,0a3.2,6.8 0 1,0 -6.4,0" />
+    <path android:fillColor="#000000" android:pathData="M29.2,14h1.6v12h-1.6z" />
+</vector>

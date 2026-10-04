@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Brazilian Portuguese: Brazil is where most Portuguese speakers are, and the picker shows its flag. -->
+<resources>
+    <string name="app_title">Calculadora</string>
+    <string name="calc_caption_simple">O DIA A DIA, SIMPLIFICADO</string>
+    <string name="calc_caption_scientific">CIENTÍFICA · GRAUS</string>
+    <string name="calc_check">Confira seu cálculo</string>
+    <string name="calc_pin_hint">Digite seu PIN e toque em =</string>
+    <string name="calc_wait">Aguarde antes de tentar de novo</string>
+    <string name="calc_scientific_show">Mostrar teclas científicas</string>
+    <string name="calc_scientific_hide">Ocultar teclas científicas</string>
+
+    <string name="history_title">Histórico de cálculos</string>
+    <string name="history_empty">Nada salvo ainda</string>
+    <plurals name="history_count">
+        <item quantity="one">%1$d cálculo salvo neste dispositivo</item>
+        <item quantity="many">%1$d cálculos salvos neste dispositivo</item>
+        <item quantity="other">%1$d cálculos salvos neste dispositivo</item>
+    </plurals>
+    <string name="history_hint">Os cálculos feitos com = ficam guardados aqui. PINs nunca são salvos.</string>
+    <string name="history_clear">Limpar histórico</string>
+    <string name="history_clear_detail">Remove todos os cálculos salvos</string>
+    <string name="history_cleared">Histórico de cálculos limpo</string>
+
+    <string name="intro_title">Sua calculadora particular</string>
+    <string name="intro_body">Defina um PIN de 6 a 12 dígitos. Digite-o na calculadora e toque em = para abrir seu cofre de fotos e vídeos.\n\nNão há recuperação de PIN. Desinstalar o app ou limpar seus dados remove o cofre. Exporte antes os arquivos importantes.</string>
+    <string name="intro_action">Definir PIN</string>
+
+    <string name="pin_title">Crie seu PIN</string>
+    <string name="pin_body">6 a 12 dígitos. Digite-o na calculadora e toque em = para abrir seu cofre. Não há recuperação.</string>
+    <string name="pin_hint">PIN (6 a 12 dígitos)</string>
+    <string name="pin_confirm">Confirmar PIN</string>
+    <string name="pin_save">Salvar PIN</string>
+    <string name="pin_mismatch">Use dois PINs iguais de 6 a 12 dígitos</string>
+    <string name="pin_saving">Salvando…</string>
+    <string name="pin_saved">PIN salvo. Digite-o e toque em = para desbloquear.</string>
+    <string name="pin_failed">Não foi possível salvar o PIN. Tente de novo.</string>
+    <string name="pin_show">Mostrar PIN</string>
+    <string name="pin_hide">Ocultar PIN</string>
+
+    <string name="lang_title">Escolha seu idioma</string>
+    <string name="lang_subtitle">Toque no globo da calculadora para mudar depois</string>
+    <string name="lang_continue">Continuar</string>
+    <string name="lang_selected">Selecionado</string>
+    <string name="lang_tap">Toque para usar</string>
+    <string name="lang_button">Idioma</string>
+
+    <string name="ad_badge">Anúncio</string>
+</resources>
